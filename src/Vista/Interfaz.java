@@ -2,9 +2,12 @@
 package Vista;
 
 
+import Controlador.Arbol_ListaEspera;
+import Controlador.ColaMascotas;
 import Controlador.ListaHospital;
 import Modelo.Consultorios;
 import Modelo.Hospital;
+import Modelo.Mascotas;
 import Modelo.Receta;
 import static Vista.AsignarMedico.consu;
 import static Vista.AsignarMedico.consul1;
@@ -24,7 +27,8 @@ import javax.swing.JOptionPane;
 
 
 public class Interfaz extends javax.swing.JFrame {
-    
+        ColaMascotas colaDeMascotas = new ColaMascotas();
+        Arbol_ListaEspera arbolito = new Arbol_ListaEspera();
         static Receta receta [] = {
         new Receta(1, "Promax", 50, 3), 
 	new Receta(2, "Synoquin", 150, 2), 
@@ -54,6 +58,8 @@ public class Interfaz extends javax.swing.JFrame {
         LabelListaPacientes = new javax.swing.JLabel();
         LabelListaPacientes1 = new javax.swing.JLabel();
         MostrarListaPacientes = new java.awt.TextArea();
+        BotonDeEspera = new javax.swing.JButton();
+        recorrerInOrden = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -164,6 +170,20 @@ public class Interfaz extends javax.swing.JFrame {
         MostrarListaPacientes.setRows(10);
         MostrarListaPacientes.setSelectionStart(-1);
 
+        BotonDeEspera.setText("Espera");
+        BotonDeEspera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonDeEsperaActionPerformed(evt);
+            }
+        });
+
+        recorrerInOrden.setText("inOrden");
+        recorrerInOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recorrerInOrdenActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ContenedorLayout = new javax.swing.GroupLayout(Contenedor);
         Contenedor.setLayout(ContenedorLayout);
         ContenedorLayout.setHorizontalGroup(
@@ -178,7 +198,12 @@ public class Interfaz extends javax.swing.JFrame {
                         .addGap(84, 84, 84)
                         .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelListaPacientes1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(MostrarListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(ContenedorLayout.createSequentialGroup()
+                                    .addComponent(BotonDeEspera, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(recorrerInOrden))
+                                .addComponent(MostrarListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(80, Short.MAX_VALUE))
         );
         ContenedorLayout.setVerticalGroup(
@@ -191,6 +216,10 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(LabelListaPacientes)
                 .addGap(18, 18, 18)
                 .addComponent(MostrarListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BotonDeEspera, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                    .addComponent(recorrerInOrden, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -271,6 +300,27 @@ public class Interfaz extends javax.swing.JFrame {
         textAreaConsulta.setText(consu.ListaOcupados().MuestraConsultorios());
     }//GEN-LAST:event_Consultar1MouseClicked
 
+    private void BotonDeEsperaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDeEsperaActionPerformed
+        // TODO add your handling code here:
+        Mascotas mascota = new Mascotas();
+        if(colaDeMascotas.estaVacia()){
+            JOptionPane.showMessageDialog(null, "No hay pacientes para agregar");
+        }else{
+        mascota = colaDeMascotas.extraer();
+        arbolito.agregarNodo(mascota);
+        }
+    }//GEN-LAST:event_BotonDeEsperaActionPerformed
+
+    private void recorrerInOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recorrerInOrdenActionPerformed
+        // TODO add your handling code here:
+        AsignarMedico consultando = new AsignarMedico();
+        if (!consultando.arbolito.estaVacio()) {
+                            consultando.arbolito.inOrden(arbolito.raiz);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "El arbol está vacío");
+                        }
+    }//GEN-LAST:event_recorrerInOrdenActionPerformed
+
   /*static JFrame Principal;
 	private static JTextField nombreanimal;
 	private static JTextField edadanimal;
@@ -298,6 +348,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Asignar_Medico;
+    private javax.swing.JButton BotonDeEspera;
     private javax.swing.JLabel Consultar1;
     private javax.swing.JPanel Contenedor;
     private javax.swing.JLabel Desocupar_Consultorio;
@@ -311,6 +362,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JButton recorrerInOrden;
     // End of variables declaration//GEN-END:variables
 
 

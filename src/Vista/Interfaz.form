@@ -103,7 +103,14 @@
                           <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="LabelListaPacientes1" min="-2" pref="209" max="-2" attributes="0"/>
-                              <Component id="MostrarListaPacientes" min="-2" pref="223" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="BotonDeEspera" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="recorrerInOrden" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="MostrarListaPacientes" min="-2" pref="223" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -121,6 +128,11 @@
                   <Component id="LabelListaPacientes" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="MostrarListaPacientes" min="-2" pref="266" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="BotonDeEspera" pref="45" max="32767" attributes="0"/>
+                      <Component id="recorrerInOrden" max="32767" attributes="0"/>
+                  </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -288,6 +300,22 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="BotonDeEspera">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Espera"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonDeEsperaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="recorrerInOrden">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="inOrden"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="recorrerInOrdenActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

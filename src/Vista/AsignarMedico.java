@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.Arbol_ListaEspera;
 import Controlador.ListaConsultorios;
 import Controlador.ListaEnlazadaMedicos;
 import Modelo.Consultorios;
@@ -18,35 +19,34 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 
-
 public class AsignarMedico extends javax.swing.JFrame {
+
+    static int contador = 0;
+    static ListaEnlazadaMedicos lista = new ListaEnlazadaMedicos();
+    static Medicos medico1 = new Medicos(1, "Carlos", "Sánchez");
+    static Medicos medico2 = new Medicos(2, "Mario", "García");
+    static Medicos medico3 = new Medicos(3, "Laura", "Mendoza");
+    static Medicos medico4 = new Medicos(4, "Maria", "Rodriguez");
+
+    static ListaConsultorios consu = new ListaConsultorios();
+    static Consultorios consul1 = new Consultorios(1, "Disponible", null, null, null);
+    static Consultorios consul2 = new Consultorios(2, "Disponible", null, null, null);
+    static Consultorios consul3 = new Consultorios(3, "Disponible", null, null, null);
+    static Consultorios consul4 = new Consultorios(4, "Disponible", null, null, null);
     
-        static ListaEnlazadaMedicos lista = new ListaEnlazadaMedicos();
-        static Medicos medico1 = new Medicos(1, "Carlos", "Sánchez"); 
-	static Medicos medico2 = new Medicos(2, "Mario", "García");
-	static Medicos medico3 = new Medicos(3, "Laura", "Mendoza");
-	static Medicos medico4 = new Medicos(4, "Maria", "Rodriguez");
-        
-        static ListaConsultorios consu = new ListaConsultorios();
-        static Consultorios consul1 = new Consultorios(1, "Disponible", null, null,null);
-	static Consultorios consul2 = new Consultorios(2, "Disponible", null, null,null);
-	static Consultorios consul3 = new Consultorios(3, "Disponible", null, null,null);
-	static Consultorios consul4 = new Consultorios(4, "Disponible", null, null,null);
-        
-       static String Dolencias []= {"Moquillo", "Hepatitis", "Leptospirosis", "Parvovirus","Rabia", "Conjuntivitis", "Alergias cutáneas", "Diarrea", "Cáncer" };
-        static Dolencias Dolen[]= {
-        new Dolencias("Moquillo", " Esta enfermedad es causada por un virus de la familia Paramixoviridae, afecta al aparato digestivo y al aparato respiratorio."), 
-	new Dolencias("Hepatitis", "Enfermedad provocada por virus que ha afectado el higafo"),
+    Arbol_ListaEspera arbolito = new Arbol_ListaEspera();
+
+    static String Dolencias[] = {"Moquillo", "Hepatitis", "Leptospirosis", "Parvovirus", "Rabia", "Conjuntivitis", "Alergias cutáneas", "Diarrea", "Cáncer"};
+    static Dolencias Dolen[] = {
+        new Dolencias("Moquillo", " Esta enfermedad es causada por un virus de la familia Paramixoviridae, afecta al aparato digestivo y al aparato respiratorio."),
+        new Dolencias("Hepatitis", "Enfermedad provocada por virus que ha afectado el higafo"),
         new Dolencias("Leptospirosis", "Es una enfermedad más frecuente en primavera y otoño, debido a las temperaturas moderadas y a la menor humedad."),
-        new Dolencias("Conjuntivitis", "Se da producto de algún cuerpo extraño que se ha introducido en el ojo del animal. Sin embargo, también puede ser síntoma asociado de enfermedades graves como el virus del moquillo.")       
-        };
-       
-        
-        
+        new Dolencias("Conjuntivitis", "Se da producto de algún cuerpo extraño que se ha introducido en el ojo del animal. Sin embargo, también puede ser síntoma asociado de enfermedades graves como el virus del moquillo.")
+    };
+
     public AsignarMedico() {
         initComponents();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -182,108 +182,125 @@ public class AsignarMedico extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void ButtonAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAsignarActionPerformed
-        
+
         Consultorios consultorio = new Consultorios();
-	Medicos medico = new Medicos();
-	Mascotas mascota = new Mascotas();
-       
-		try {
-                    if(NuevoPaciente.colaMascotas.estaVacia()) {
+        Medicos medico = new Medicos();
+        Mascotas mascota = new Mascotas();
 
-                    JOptionPane.showMessageDialog(null, "No hay pacientes haciendo fila");
+        try {
+            if (NuevoPaciente.colaMascotas.estaVacia()) {
 
-		}else {
-                        if(lista.Comprobacion(Integer.parseInt(TxtcodMedico.getText()))) {
-                            int dato=0;
-				do {
+                JOptionPane.showMessageDialog(null, "No hay pacientes haciendo fila");
 
-				dato = Integer.parseInt(TxtConsultorio.getText());
-				consultorio.setNumerocon(dato);
+            } else {
+                if (lista.Comprobacion(Integer.parseInt(TxtcodMedico.getText()))) {
+                    int dato = 0;
+                    do {
 
-				if(dato<0) {
+                        dato = Integer.parseInt(TxtConsultorio.getText());
+                        consultorio.setNumerocon(dato);
 
-				JOptionPane.showMessageDialog(null, "El Numero de consultorio no corresponde a los consultorios asociados", "AVISO", JOptionPane.ERROR_MESSAGE);
-                                }else if (dato>4) {
-                                    JOptionPane.showMessageDialog(null, "El Numero de consultorio no corresponde a los consultorios asociados", "AVISO", JOptionPane.ERROR_MESSAGE);
-				}
+                        if (dato < 0) {
 
-                                  }while(dato<0||dato>4);
+                            JOptionPane.showMessageDialog(null, "El Numero de consultorio no corresponde a los consultorios asociados", "AVISO", JOptionPane.ERROR_MESSAGE);
+                        } else if (dato > 4) {
+                            JOptionPane.showMessageDialog(null, "El Numero de consultorio no corresponde a los consultorios asociados", "AVISO", JOptionPane.ERROR_MESSAGE);
+                        }
 
-				if(consu.Comprobar(consultorio.getNumerocon())) {
-                           
-                                    int a = (int) (Math.random()*Dolencias.length)+0;// se le asigna una dolencia aleatoria
+                    } while (dato < 0 || dato > 4);
 
-                                    mascota = NuevoPaciente.colaMascotas.extraer();
-                                    mascota.setDolencia(Dolencias[a]);
+                    if (consu.Comprobar(consultorio.getNumerocon())) {
 
-                                    consultorio.setMascota(mascota);
-                                    consultorio.setMedico(lista.Cambio(Integer.parseInt(TxtcodMedico.getText())));
-                                    consultorio.setEstado("Ocupado");
-                                    consu.Cambio2(Integer.parseInt(TxtConsultorio.getText()), consultorio);
-			//------------------------------------
-                                
-				textAreaConsultorios.setText(consu.MostarTodo());
-				textAreaMostrarMedicos.setText(lista.MostrarMedicos());
-                                MostrarListaPacientes.setText(colaMascotas.imprimir());
-                                
-                                int op = JOptionPane.showConfirmDialog(null, "¿Desea Asignar otro médico?", "Información", JOptionPane.YES_NO_OPTION);
-                                        if(op == JOptionPane.YES_OPTION) {
-					TxtcodMedico.setText(null);
-					TxtConsultorio.setText(null);
-                                        
-				}else {
-					this.dispose();
-					new Interfaz().setVisible(true);
-                                       MostrarListaPacientes.setText(colaMascotas.imprimir());
-				}
-                                
-                                    this.addWindowListener(new WindowAdapter() {
-                                        public void windowClosing( WindowEvent evt ) {
-                                                new Interfaz().setVisible(true);
+                        int a = (int) (Math.random() * Dolencias.length) + 0;// se le asigna una dolencia aleatoria
 
-                                        }
-                                });       
-                             }else {
-                                   JOptionPane.showMessageDialog(null, "Consultorio Ocupado\nUsar otro o Desocupar uno");
-				}
-                               MostrarListaPacientes.setText(colaMascotas.imprimir()); 
-                            }else {
-                            JOptionPane.showMessageDialog(null, "Medico Ocupado");
-			}
+                        mascota = NuevoPaciente.colaMascotas.extraer();
+                        mascota.setDolencia(Dolencias[a]);
+
+                        consultorio.setMascota(mascota);
+                        consultorio.setMedico(lista.Cambio(Integer.parseInt(TxtcodMedico.getText())));
+                        consultorio.setEstado("Ocupado");
+                        consu.Cambio2(Integer.parseInt(TxtConsultorio.getText()), consultorio);
+                        //------------------------------------
+
+                        textAreaConsultorios.setText(consu.MostarTodo());
+                        textAreaMostrarMedicos.setText(lista.MostrarMedicos());
+                        MostrarListaPacientes.setText(colaMascotas.imprimir());
+
+                        int op = JOptionPane.showConfirmDialog(null, "¿Desea Asignar otro médico?", "Información", JOptionPane.YES_NO_OPTION);
+                        if (op == JOptionPane.YES_OPTION) {
+                            TxtcodMedico.setText(null);
+                            TxtConsultorio.setText(null);
+
+                        } else {
+                            this.dispose();
+                            new Interfaz().setVisible(true);
+                            MostrarListaPacientes.setText(colaMascotas.imprimir());
+                        }
+
+                        this.addWindowListener(new WindowAdapter() {
+                            public void windowClosing(WindowEvent evt) {
+                                new Interfaz().setVisible(true);
+
+                            }
+                        });
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Consultorio Ocupado\nUsar otro o Desocupar uno");
                     }
-                    
-                    } catch (Exception e) {
-				JOptionPane.showMessageDialog(null, e.getMessage());
-				e.printStackTrace();
-				}
+                    MostrarListaPacientes.setText(colaMascotas.imprimir());
+                } else {
+                    JOptionPane.showMessageDialog(null, "Medico Ocupado");
+                }
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            e.printStackTrace();
+        }
+        contador++;
+        if (contador == 4) {
+            System.out.println("EL CONTADOR ESTA EN 4");
+            System.out.println("No hay consultorios ni doctores disponibles, agregando pacientes a lista de espera");
+            for(int i=0;i<(NuevoPaciente.colaMascotas.TamanioFila()+1);i++){
+            if (NuevoPaciente.colaMascotas.estaVacia()) {
+                JOptionPane.showMessageDialog(null, "No hay pacientes para agregar");
+            } else {
+                mascota = NuevoPaciente.colaMascotas.extraer();
+                arbolito.agregarNodo(mascota);
+                
+            }
+          }
+            arbolito.inOrden(arbolito.raiz);
+        }
     }//GEN-LAST:event_ButtonAsignarActionPerformed
 
     private void ButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarActionPerformed
         this.dispose();
-	new Interfaz().setVisible(true);
+        new Interfaz().setVisible(true);
         MostrarListaPacientes.setText(colaMascotas.imprimir());
     }//GEN-LAST:event_ButtonCancelarActionPerformed
 
     private void CodigoMedico(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CodigoMedico
-       int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada 
-        if(TxtcodMedico.getText().length()==2)
-	evt.consume();
-            if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
-                evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
-		JOptionPane.showMessageDialog(null, "No puede ingresar letras!!!", "Alerta", JOptionPane.ERROR_MESSAGE);
-			}
+        int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada 
+        if (TxtcodMedico.getText().length() == 2) {
+            evt.consume();
+        }
+        if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
+            evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+            JOptionPane.showMessageDialog(null, "No puede ingresar letras!!!", "Alerta", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_CodigoMedico
 
     private void TxtConsultorioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtConsultorioKeyTyped
-       int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada 
-	if(TxtConsultorio.getText().length()==2)
+        int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada 
+        if (TxtConsultorio.getText().length() == 2) {
             evt.consume();
-                if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
-		evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
-		JOptionPane.showMessageDialog(null, "No puede ingresar letras!!!", "Alerta", JOptionPane.ERROR_MESSAGE);
-			}
+        }
+        if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
+            evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+            JOptionPane.showMessageDialog(null, "No puede ingresar letras!!!", "Alerta", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_TxtConsultorioKeyTyped
 
     private void TxtcodMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtcodMedicoActionPerformed
@@ -291,7 +308,7 @@ public class AsignarMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_TxtcodMedicoActionPerformed
 
     public static void main(String args[]) {
-                    
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
