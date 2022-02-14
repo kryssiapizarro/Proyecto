@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 public class NuevoPaciente extends javax.swing.JFrame {
 
     public static ColaMascotas colaMascotas = new ColaMascotas();
-    Mascotas Paciente= new Mascotas();
+    
 
     static String Clasificacion [] ={"Gato", "Perro", "Ave", "Roedor", "Exóticos"};
     public NuevoPaciente() {
@@ -109,7 +109,7 @@ public class NuevoPaciente extends javax.swing.JFrame {
 
         ComboBox_Clasificación.setBackground(java.awt.SystemColor.control);
         ComboBox_Clasificación.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        ComboBox_Clasificación.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gato", "Perro", "Ave", "Roedor", "Otro" }));
+        ComboBox_Clasificación.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gato", "Perro", "Ave", "Roedor", "Exóticos" }));
         ComboBox_Clasificación.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboBox_ClasificaciónActionPerformed(evt);
@@ -289,7 +289,8 @@ public class NuevoPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelarActionPerformed
 
     private void BtnGuardarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarPacienteActionPerformed
-        Paciente.setNombre(TextFieldNombreMascota.getText());
+            Mascotas Paciente= new Mascotas();
+            Paciente.setNombre(TextFieldNombreMascota.getText());
             Paciente.setEdad(Integer.parseInt(TextFieldEdadMascota.getText()));
             Paciente.setRaza(TextFieldRaza.getText());
             Paciente.setDueño(TextFieldDueno.getText());
@@ -309,12 +310,11 @@ public class NuevoPaciente extends javax.swing.JFrame {
 					TextFieldEdadMascota.setText(null);
 					TextFieldDueno.setText(null);
 					TextFieldRaza.setText(null);
-                                        
-        
+                                        MostrarListaPacientes.setText(colaMascotas.imprimir());
 				}else {
 					this.dispose();
 					new Interfaz().setVisible(true);
-                                       MostrarListaPacientes.setText(colaMascotas.imprimir());
+                                        MostrarListaPacientes.setText(colaMascotas.imprimir());
 				}
                                 
 		this.addWindowListener(new WindowAdapter() {

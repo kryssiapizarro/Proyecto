@@ -310,7 +310,7 @@
                 <StringItem index="1" value="Perro"/>
                 <StringItem index="2" value="Ave"/>
                 <StringItem index="3" value="Roedor"/>
-                <StringItem index="4" value="Otro"/>
+                <StringItem index="4" value="Ex&#xf3;ticos"/>
               </StringArray>
             </Property>
           </Properties>
