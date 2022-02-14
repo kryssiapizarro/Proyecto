@@ -258,11 +258,13 @@ public class AsignarMedico extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.getMessage());
             e.printStackTrace();
         }
+        
         contador++;
+        int pacientesRestantes = NuevoPaciente.colaMascotas.TamanioFila();
+        
         if (contador == 4) {
-            System.out.println("EL CONTADOR ESTA EN 4");
-            System.out.println("No hay consultorios ni doctores disponibles, agregando pacientes a lista de espera");
-            for(int i=0;i<(NuevoPaciente.colaMascotas.TamanioFila()+1);i++){
+            JOptionPane.showMessageDialog(null,"No hay consultorios ni doctores disponibles, agregando pacientes a lista de espera");
+            for(int i=0;i<pacientesRestantes;i++){
             if (NuevoPaciente.colaMascotas.estaVacia()) {
                 JOptionPane.showMessageDialog(null, "No hay pacientes para agregar");
             } else {
@@ -272,6 +274,7 @@ public class AsignarMedico extends javax.swing.JFrame {
             }
           }
             arbolito.inOrden(arbolito.raiz);
+            //MostrarListaPacientes.setText(arbolito.inOrden(arbolito.raiz));
         }
     }//GEN-LAST:event_ButtonAsignarActionPerformed
 
