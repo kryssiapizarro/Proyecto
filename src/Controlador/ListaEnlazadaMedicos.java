@@ -38,11 +38,17 @@ public class ListaEnlazadaMedicos {
             if (ListaVacia()) {
 
                 Inicio = nuevo;
+                Inicio.siguiente= null;
+                Inicio.anterior = null;
+                Fin = Inicio;
 
                 }else{
-
-                    nuevo.setSiguiente(Inicio);
-                    Inicio = nuevo;
+                    Fin.siguiente = nuevo;
+                    nuevo.anterior = Fin;
+                    nuevo.siguiente = null;
+                    Fin = nuevo;
+                   // nuevo.setSiguiente(Inicio);
+                    //Inicio = nuevo;
 		}
 	}
 	//---AGREGA AL FINAL---
@@ -102,7 +108,7 @@ public class ListaEnlazadaMedicos {
                             break; 
 				}
 
-			temp = temp.getSiguiente();
+			temp = temp.siguiente;
 		}
 
 		return encontrado;
@@ -128,7 +134,7 @@ public class ListaEnlazadaMedicos {
                             break; 
 			}
 
-                    temp = temp.getSiguiente();
+                    temp = temp.siguiente;
 		}
 
             return encontrado;
@@ -188,7 +194,7 @@ public class ListaEnlazadaMedicos {
             }else {
 		while(Actual != null) {
                     
-                   Actual = Actual.Siguiente;
+                   Actual = Actual.siguiente;
 		}
              }
 
@@ -206,7 +212,7 @@ public class ListaEnlazadaMedicos {
 
                     a += "Doc:"+Actual.getDato().getNombre()+", cod("+Actual.dato.getCodMedico()+")\t Estado:("+Actual.getDato().getEstado()+
                             ")\n-----------------------------------------------------------"+"\n";
-                    Actual = Actual.Siguiente;
+                    Actual = Actual.siguiente;
 		}
 	}
 
