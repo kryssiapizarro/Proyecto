@@ -9,12 +9,13 @@ public class NodoListaEnlazadaMedicos implements Serializable{
 
 private static final long serialVersionUID = 1L;
 public Medicos dato;
-public NodoListaEnlazadaMedicos Siguiente;
+public NodoListaEnlazadaMedicos siguiente;
+public NodoListaEnlazadaMedicos anterior;
 	
   public NodoListaEnlazadaMedicos(Medicos dato) {
   
    this.dato = dato;
-   this.Siguiente = null;
+   this.siguiente = null;
 	
   }
   
@@ -28,12 +29,23 @@ public NodoListaEnlazadaMedicos Siguiente;
             this.dato = dato;
     }
 
-  public NodoListaEnlazadaMedicos getSiguiente() {
-            return Siguiente;
+    public NodoListaEnlazadaMedicos getSiguiente() {
+        return siguiente;
     }
 
-  public void setSiguiente(NodoListaEnlazadaMedicos siguiente) {
-            Siguiente = siguiente;
+    public void setSiguiente(NodoListaEnlazadaMedicos siguiente) {
+        this.siguiente = siguiente;
     }
+
+    public NodoListaEnlazadaMedicos getAnterior() {
+        return anterior;
+    }
+
+    public void setAnterior(NodoListaEnlazadaMedicos anterior) {
+        this.anterior = anterior;
+    }
+
+  
+  
 	 
 }
