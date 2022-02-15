@@ -17,6 +17,7 @@ import static Vista.NuevoPaciente.colaMascotas;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 public class AsignarMedico extends javax.swing.JFrame {
@@ -33,7 +34,7 @@ public class AsignarMedico extends javax.swing.JFrame {
     static Consultorios consul2 = new Consultorios(2, "Disponible", null, null, null);
     static Consultorios consul3 = new Consultorios(3, "Disponible", null, null, null);
     static Consultorios consul4 = new Consultorios(4, "Disponible", null, null, null);
-    
+
     Arbol_ListaEspera arbolito = new Arbol_ListaEspera();
 
     static String Dolencias[] = {"Moquillo", "Hepatitis", "Leptospirosis", "Parvovirus", "Rabia", "Conjuntivitis", "Alergias cutáneas", "Diarrea", "Cáncer"};
@@ -228,6 +229,32 @@ public class AsignarMedico extends javax.swing.JFrame {
                         textAreaMostrarMedicos.setText(lista.MostrarMedicos());
                         MostrarListaPacientes.setText(colaMascotas.imprimir());
 
+                        contador++;//contador que aumenta cada vez que se asignan medicos y consultorios correctamente
+                        /*
+                        La siguiente variable guarda el tamaño de la cola de mascotas que
+                        no pudieron asignarse debido a que ya no hay médicos ni consultorios disponibles
+                         */
+                        int pacientesRestantes = NuevoPaciente.colaMascotas.TamanioFila();
+
+                        if (contador == 4) {//si el contador llega a 4, que es la cantidad maxima de consultorios y medicos
+                            JOptionPane optionPane = new JOptionPane("No hay consultorios ni doctores disponibles, agregando pacientes a lista de espera!");
+                            JDialog dialog = optionPane.createDialog("ATENCIÓN");
+                            dialog.setAlwaysOnTop(this.isAlwaysOnTopSupported());
+                            dialog.setVisible(true);
+                            this.dispose();
+                            new Interfaz().setVisible(true);
+                            for (int i = 0; i < pacientesRestantes; i++) {//i va a ser menor a la cantidad de pacientes restantes
+                                if (NuevoPaciente.colaMascotas.estaVacia()) {
+                                    JOptionPane.showMessageDialog(null, "No hay pacientes para agregar");
+                                } else {
+                                    mascota = NuevoPaciente.colaMascotas.extraer();//se extraen los animales de la cola
+                                    arbolito.agregarNodo(mascota);//se agregan los animales extraidos a la lista de espera
+                                }
+                            }
+                            arbolito.inOrden(arbolito.raiz);//se recorre el arbol para mostrar la lista de espera
+                            MostrarListaPacientes.setText(arbolito.toString());//Se muestra la lista de espera en el area de 
+                        }//termina el if que evalua si el contador es igual a cuatro
+
                         int op = JOptionPane.showConfirmDialog(null, "¿Desea Asignar otro médico?", "Información", JOptionPane.YES_NO_OPTION);
                         if (op == JOptionPane.YES_OPTION) {
                             TxtcodMedico.setText(null);
@@ -247,34 +274,18 @@ public class AsignarMedico extends javax.swing.JFrame {
                         });
                     } else {
                         JOptionPane.showMessageDialog(null, "Consultorio Ocupado\nUsar otro o Desocupar uno");
+                        return;//importante para no aumentar el contador
                     }
                     MostrarListaPacientes.setText(colaMascotas.imprimir());
                 } else {
                     JOptionPane.showMessageDialog(null, "Medico Ocupado");
+                    return;//importante para no aumentar el contador
                 }
             }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
             e.printStackTrace();
-        }
-        
-        contador++;
-        int pacientesRestantes = NuevoPaciente.colaMascotas.TamanioFila();
-        
-        if (contador == 4) {
-            JOptionPane.showMessageDialog(null,"No hay consultorios ni doctores disponibles, agregando pacientes a lista de espera");
-            for(int i=0;i<pacientesRestantes;i++){
-            if (NuevoPaciente.colaMascotas.estaVacia()) {
-                JOptionPane.showMessageDialog(null, "No hay pacientes para agregar");
-            } else {
-                mascota = NuevoPaciente.colaMascotas.extraer();
-                arbolito.agregarNodo(mascota);
-                
-            }
-          }
-            arbolito.inOrden(arbolito.raiz);
-            MostrarListaPacientes.setText(arbolito.toString());
         }
     }//GEN-LAST:event_ButtonAsignarActionPerformed
 
