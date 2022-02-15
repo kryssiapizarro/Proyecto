@@ -22,6 +22,7 @@ import static Vista.AsignarMedico.medico4;
 import static Vista.AsignarMedico.textAreaConsultorios;
 import static Vista.AsignarMedico.textAreaMostrarMedicos;
 import static Vista.ConsultarOcupacion.textAreaConsulta;
+import static Vista.MostrarInfoHospital.textAreaInformación;
 
 import javax.swing.JOptionPane;
 
@@ -60,9 +61,12 @@ public class Interfaz extends javax.swing.JFrame {
         MostrarListaPacientes = new java.awt.TextArea();
         BotonDeEspera = new javax.swing.JButton();
         recorrerInOrden = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuBarArriba = new javax.swing.JMenuBar();
+        jMenuHospital = new javax.swing.JMenu();
+        jMenuItemDiagnosticos = new javax.swing.JMenuItem();
+        Archivos = new javax.swing.JMenu();
+        jMenuItemAlmacenar = new javax.swing.JMenuItem();
+        jMenuItemRecuperar = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -225,21 +229,47 @@ public class Interfaz extends javax.swing.JFrame {
 
         getContentPane().add(Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 510));
 
-        jMenuBar1.setBackground(new java.awt.Color(204, 233, 248));
-        jMenuBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
-        jMenuBar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jMenuBarArriba.setBackground(new java.awt.Color(204, 233, 248));
+        jMenuBarArriba.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jMenuBarArriba.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuBarArriba.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jMenu1.setBorder(null);
-        jMenu1.setText("Hospital");
-        jMenu1.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        jMenuBar1.add(jMenu1);
+        jMenuHospital.setBorder(null);
+        jMenuHospital.setText("Hospital");
+        jMenuHospital.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
 
-        jMenu2.setText("Archivos");
-        jMenu2.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        jMenuBar1.add(jMenu2);
+        jMenuItemDiagnosticos.setText("Información Diagnosticos");
+        jMenuItemDiagnosticos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemDiagnosticosActionPerformed(evt);
+            }
+        });
+        jMenuHospital.add(jMenuItemDiagnosticos);
 
-        setJMenuBar(jMenuBar1);
+        jMenuBarArriba.add(jMenuHospital);
+
+        Archivos.setText("Archivos");
+        Archivos.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+
+        jMenuItemAlmacenar.setText("Almacenar");
+        jMenuItemAlmacenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAlmacenarActionPerformed(evt);
+            }
+        });
+        Archivos.add(jMenuItemAlmacenar);
+
+        jMenuItemRecuperar.setText("Recuperar");
+        jMenuItemRecuperar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRecuperarActionPerformed(evt);
+            }
+        });
+        Archivos.add(jMenuItemRecuperar);
+
+        jMenuBarArriba.add(Archivos);
+
+        setJMenuBar(jMenuBarArriba);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -321,6 +351,26 @@ public class Interfaz extends javax.swing.JFrame {
                         }
     }//GEN-LAST:event_recorrerInOrdenActionPerformed
 
+    private void jMenuItemAlmacenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAlmacenarActionPerformed
+      this.setVisible(false);
+      //AlmacenaHospi();
+      hospi.escritura(); 
+    }//GEN-LAST:event_jMenuItemAlmacenarActionPerformed
+
+    private void jMenuItemDiagnosticosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDiagnosticosActionPerformed
+      this.setVisible(false);
+      MostrarInfoHospital info= new MostrarInfoHospital();
+      info.setVisible(true);
+      info.setLocationRelativeTo(null);
+      textAreaInformación.setText(hospi.Mostrar());
+    }//GEN-LAST:event_jMenuItemDiagnosticosActionPerformed
+
+    private void jMenuItemRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRecuperarActionPerformed
+      this.setVisible(false);
+       hospi.lectura();
+    }//GEN-LAST:event_jMenuItemRecuperarActionPerformed
+
+  
   /*static JFrame Principal;
 	private static JTextField nombreanimal;
 	private static JTextField edadanimal;
@@ -347,6 +397,7 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Archivos;
     private javax.swing.JLabel Asignar_Medico;
     private javax.swing.JButton BotonDeEspera;
     private javax.swing.JLabel Consultar1;
@@ -358,10 +409,12 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JLabel NuevoPaciente;
     private javax.swing.JPanel PanelMenu;
     private javax.swing.JLabel btnSalir;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBarArriba;
+    private javax.swing.JMenu jMenuHospital;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItemAlmacenar;
+    private javax.swing.JMenuItem jMenuItemDiagnosticos;
+    private javax.swing.JMenuItem jMenuItemRecuperar;
     private javax.swing.JButton recorrerInOrden;
     // End of variables declaration//GEN-END:variables
 
