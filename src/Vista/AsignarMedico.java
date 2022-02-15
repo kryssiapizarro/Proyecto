@@ -274,7 +274,7 @@ public class AsignarMedico extends javax.swing.JFrame {
             }
           }
             arbolito.inOrden(arbolito.raiz);
-            //MostrarListaPacientes.setText(arbolito.inOrden(arbolito.raiz));
+            MostrarListaPacientes.setText(arbolito.toString());
         }
     }//GEN-LAST:event_ButtonAsignarActionPerformed
 
