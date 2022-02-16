@@ -61,6 +61,8 @@ public class Interfaz extends javax.swing.JFrame {
         MostrarListaPacientes = new java.awt.TextArea();
         BotonDeEspera = new javax.swing.JButton();
         recorrerInOrden = new javax.swing.JButton();
+        MostrarListaEspera = new java.awt.TextArea();
+        LabelListaPacientes2 = new javax.swing.JLabel();
         jMenuBarArriba = new javax.swing.JMenuBar();
         jMenuHospital = new javax.swing.JMenu();
         jMenuItemDiagnosticos = new javax.swing.JMenuItem();
@@ -188,6 +190,13 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        MostrarListaEspera.setEditable(false);
+        MostrarListaEspera.setFont(new java.awt.Font("Microsoft New Tai Lue", 0, 14)); // NOI18N
+
+        LabelListaPacientes2.setFont(new java.awt.Font("Tw Cen MT", 0, 22)); // NOI18N
+        LabelListaPacientes2.setForeground(new java.awt.Color(102, 153, 255));
+        LabelListaPacientes2.setText("Lista de Espera");
+
         javax.swing.GroupLayout ContenedorLayout = new javax.swing.GroupLayout(Contenedor);
         Contenedor.setLayout(ContenedorLayout);
         ContenedorLayout.setHorizontalGroup(
@@ -195,20 +204,31 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(ContenedorLayout.createSequentialGroup()
                 .addComponent(PanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LabelListaPacientes1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(159, 159, 159))
                     .addGroup(ContenedorLayout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(LabelListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ContenedorLayout.createSequentialGroup()
-                        .addGap(84, 84, 84)
                         .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelListaPacientes1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(ContenedorLayout.createSequentialGroup()
-                                    .addComponent(BotonDeEspera, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(recorrerInOrden))
-                                .addComponent(MostrarListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(80, Short.MAX_VALUE))
+                            .addGroup(ContenedorLayout.createSequentialGroup()
+                                .addGap(84, 84, 84)
+                                .addComponent(BotonDeEspera, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(62, 62, 62)
+                                .addComponent(recorrerInOrden))
+                            .addGroup(ContenedorLayout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LabelListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(MostrarListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ContenedorLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                                .addComponent(MostrarListaEspera, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(27, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(LabelListaPacientes2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(59, 59, 59))))))
         );
         ContenedorLayout.setVerticalGroup(
             ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,18 +236,22 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(ContenedorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(LabelListaPacientes1)
-                .addGap(18, 18, 18)
-                .addComponent(LabelListaPacientes)
-                .addGap(18, 18, 18)
-                .addComponent(MostrarListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelListaPacientes2)
+                    .addComponent(LabelListaPacientes))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BotonDeEspera, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(recorrerInOrden, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(MostrarListaEspera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(MostrarListaPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
+                .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotonDeEspera, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(recorrerInOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 510));
+        getContentPane().add(Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 510));
 
         jMenuBarArriba.setBackground(new java.awt.Color(204, 233, 248));
         jMenuBarArriba.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -279,7 +303,6 @@ public class Interfaz extends javax.swing.JFrame {
         NuevoPaciente crearpaciente= new NuevoPaciente();
         crearpaciente.setVisible(true);
         crearpaciente.setLocationRelativeTo(null);
-        
     }//GEN-LAST:event_NuevoPacienteMouseClicked
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
@@ -405,6 +428,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel Desocupar_Consultorio;
     private javax.swing.JLabel LabelListaPacientes;
     private javax.swing.JLabel LabelListaPacientes1;
+    private javax.swing.JLabel LabelListaPacientes2;
+    public static java.awt.TextArea MostrarListaEspera;
     public static java.awt.TextArea MostrarListaPacientes;
     public javax.swing.JLabel NuevoPaciente;
     private javax.swing.JPanel PanelMenu;

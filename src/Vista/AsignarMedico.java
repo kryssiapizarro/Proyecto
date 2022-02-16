@@ -12,6 +12,7 @@ import Modelo.Consultorios;
 import Modelo.Dolencias;
 import Modelo.Mascotas;
 import Modelo.Medicos;
+import static Vista.Interfaz.MostrarListaEspera;
 import static Vista.Interfaz.MostrarListaPacientes;
 import static Vista.NuevoPaciente.colaMascotas;
 import java.awt.event.KeyEvent;
@@ -228,6 +229,7 @@ public class AsignarMedico extends javax.swing.JFrame {
                         textAreaConsultorios.setText(consu.MostarTodo());
                         textAreaMostrarMedicos.setText(lista.MostrarMedicos());
                         MostrarListaPacientes.setText(colaMascotas.imprimir());
+                        
 
                         contador++;//contador que aumenta cada vez que se asignan medicos y consultorios correctamente
                         /*
@@ -235,7 +237,17 @@ public class AsignarMedico extends javax.swing.JFrame {
                         no pudieron asignarse debido a que ya no hay médicos ni consultorios disponibles
                          */
                         int pacientesRestantes = NuevoPaciente.colaMascotas.TamanioFila();
+                        
+                        int op = JOptionPane.showConfirmDialog(null, "¿Desea Asignar otro médico?", "Información", JOptionPane.YES_NO_OPTION);
+                        if (op == JOptionPane.YES_OPTION) {
+                            TxtcodMedico.setText(null);
+                            TxtConsultorio.setText(null);
 
+                        } else {
+                            this.dispose();
+                            new Interfaz().setVisible(true);
+                            MostrarListaPacientes.setText(colaMascotas.imprimir());
+                        }
                         if (contador == 4) {//si el contador llega a 4, que es la cantidad maxima de consultorios y medicos
                             JOptionPane optionPane = new JOptionPane("No hay consultorios ni doctores disponibles, agregando pacientes a lista de espera!");
                             JDialog dialog = optionPane.createDialog("ATENCIÓN");
@@ -252,19 +264,9 @@ public class AsignarMedico extends javax.swing.JFrame {
                                 }
                             }
                             arbolito.inOrden(arbolito.raiz);//se recorre el arbol para mostrar la lista de espera
-                            MostrarListaPacientes.setText(arbolito.toString());//Se muestra la lista de espera en el area de 
+                            MostrarListaEspera.setText(arbolito.toString());//Se muestra la lista de espera en el area de 
                         }//termina el if que evalua si el contador es igual a cuatro
 
-                        int op = JOptionPane.showConfirmDialog(null, "¿Desea Asignar otro médico?", "Información", JOptionPane.YES_NO_OPTION);
-                        if (op == JOptionPane.YES_OPTION) {
-                            TxtcodMedico.setText(null);
-                            TxtConsultorio.setText(null);
-
-                        } else {
-                            this.dispose();
-                            new Interfaz().setVisible(true);
-                            MostrarListaPacientes.setText(colaMascotas.imprimir());
-                        }
 
                         this.addWindowListener(new WindowAdapter() {
                             public void windowClosing(WindowEvent evt) {
