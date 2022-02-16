@@ -8,6 +8,7 @@ package Vista;
 import Controlador.ListaConsultorios;
 import Modelo.Consultorios;
 import Modelo.Hospital;
+import Modelo.NodoConsultorio;
 import static Vista.AsignarMedico.consu;
 import static Vista.AsignarMedico.lista;
 import static Vista.AsignarMedico.textAreaConsultorios;
@@ -27,6 +28,8 @@ import javax.swing.JOptionPane;
  * @author Kryssia Pizarro
  */
 public class Desocupar extends javax.swing.JFrame {
+
+    AsignarMedico medico = new AsignarMedico();
 
     /**
      * Creates new form Desocupar
@@ -103,35 +106,44 @@ public class Desocupar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonDesocuparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDesocuparActionPerformed
-       
-       
-            int a = (int) (Math.random()*receta.length)+0;
-            int numeroDeConsultorio = (int) (Math.random()*4+1);
-                if(consu.Comprobar(numeroDeConsultorio)){
-              
-                  JOptionPane.showMessageDialog(null, "Todos los consultorios se encuentran disponible.No hay consultorios para desocupar");  
-                 }else{
-                try {
-                    Hospital hos = new Hospital();
-                    //int consultoriosOcupados = (int) (Math.random()*consu.ListaOcupados().TamanioFila())+0;
-                    Consultorios con = consu.Cambio(numeroDeConsultorio);
 
-                    hos.setCod(li);
-                    hos.setConsultorio(con);
-                    hos.setReceta(receta[a]);
+        int a = (int) (Math.random() * receta.length) + 0;
+        int numeroDeConsultorio = (int) (Math.random() * 4 + 1);
+        NodoConsultorio temp = Vista.AsignarMedico.consu.Inicio;
+        if (consu.Comprobar(numeroDeConsultorio)) {
 
-                    hospi.insertarInicio(hos);
-                    textAreaConsultoriosOcupados.setText(consu.MostarTodo());
-                    textAreaMostrarMedicos.setText(lista.MostrarMedicos());
-                    System.out.println("Se ha desocupado el consultorio "+numeroDeConsultorio);
-                    li = li+1;
-                } catch (Exception ex) {
-                    Logger.getLogger(Desocupar.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Todos los consultorios se encuentran disponible.No hay consultorios para desocupar");
+        } else {
+            while (temp != null) {
+                if (temp.getDato().getNumerocon() == numeroDeConsultorio && temp.getDato().getEstado() == "Ocupado") {
+                    try {
+                        Hospital hos = new Hospital();
+                        //int consultoriosOcupados = (int) (Math.random()*consu.ListaOcupados().TamanioFila())+0;
+                        Consultorios con = consu.Cambio(numeroDeConsultorio);
+
+                        hos.setCod(li);
+                        hos.setConsultorio(con);
+                        hos.setReceta(receta[a]);
+
+                        hospi.insertarInicio(hos);
+                        textAreaConsultoriosOcupados.setText(consu.MostarTodo());
+                        textAreaMostrarMedicos.setText(lista.MostrarMedicos());
+                        System.out.println("Se ha desocupado el consultorio " + numeroDeConsultorio);
+                        li = li + 1;
+                    } catch (Exception ex) {
+                        Logger.getLogger(Desocupar.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    return;
+                }else{
+                    temp = temp.Siguiente;
+                    numeroDeConsultorio = (int) (Math.random() * 4 + 1);
                 }
-                }
-                    
-            //consu.DesocuparConsultorio();
-           /* SIRVE PERO PRESENTA UN ERROR
+            }
+
+        }
+
+        //consu.DesocuparConsultorio();
+        /* SIRVE PERO PRESENTA UN ERROR
             int a = (int) (Math.random()*receta.length)+0;
             int numeroDeConsultorio = (int) (Math.random()*4+1);
                 if(consu.Comprobar(numeroDeConsultorio)){
@@ -171,8 +183,7 @@ public class Desocupar extends javax.swing.JFrame {
             textAreaConsultoriosOcupados.setText(consu.MostarTodo());
             textAreaMostrarMedicos.setText(lista.MostarTodo2());
             li = li+1;
-        */
-   
+         */
 
     }//GEN-LAST:event_ButtonDesocuparActionPerformed
 
