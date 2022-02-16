@@ -5,10 +5,12 @@ package Controlador;
 
 import Modelo.Mascotas;
 import Modelo.NodoListaEspera;
+import java.util.*;
 
 //apenas se desocupe un médico se le asigna el paciente de la lista de espera segpun el orden de llegada
 public class Arbol_ListaEspera {
        public NodoListaEspera raiz;
+       List listaDeEspera = new ArrayList<NodoListaEspera>();
 
     public Arbol_ListaEspera() {
         raiz = null;
@@ -46,10 +48,18 @@ public class Arbol_ListaEspera {
     public void inOrden(NodoListaEspera r){
         if(r != null){
             inOrden(r.hijoIzquierdo);
-            System.out.println(r.dato.toString());
+            //System.out.println(r.dato.toString());
+            listaDeEspera.add(r.dato);
             inOrden(r.hijoDerecho);
         }
     }
+    
+    
 //prueba repositorio
+
+    @Override
+    public String toString() {
+        return "Lista De Espera \n\n" + Arrays.toString(listaDeEspera.toArray()).replace("[", "").replace("]", "").replace(",", "") + "\n";
+    }
     
 }
