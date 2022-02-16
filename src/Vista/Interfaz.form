@@ -129,21 +129,12 @@
                           <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                                  <Component id="BotonDeEspera" min="-2" pref="90" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                                  <Component id="recorrerInOrden" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="LabelListaPacientes" min="-2" pref="164" max="-2" attributes="0"/>
-                                      <Component id="MostrarListaPacientes" min="-2" pref="191" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="LabelListaPacientes" min="-2" pref="164" max="-2" attributes="0"/>
+                              <Component id="MostrarListaPacientes" min="-2" pref="191" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace pref="17" max="32767" attributes="0"/>
@@ -176,11 +167,6 @@
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="MostrarListaEspera" max="32767" attributes="0"/>
                       <Component id="MostrarListaPacientes" pref="266" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="BotonDeEspera" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="recorrerInOrden" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -349,22 +335,6 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
-        </Component>
-        <Component class="javax.swing.JButton" name="BotonDeEspera">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Espera"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonDeEsperaActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="recorrerInOrden">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="inOrden"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="recorrerInOrdenActionPerformed"/>
-          </Events>
         </Component>
         <Component class="java.awt.TextArea" name="MostrarListaEspera">
           <Properties>

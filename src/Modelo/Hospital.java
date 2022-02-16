@@ -44,7 +44,7 @@ public void setReceta(Receta receta) {
 
 @Override
 public String toString() {
-	return "\tHospital ("+codigo+")"
+	return "\tDictamen #"+codigo
                 + "\nConsultorio: " + consultorio.toString()
 		+ "\nReceta: " + receta.toString() + "\n";
 }

@@ -47,7 +47,7 @@ public class ConsultarOcupacion extends javax.swing.JFrame {
         textAreaDictamen.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         textAreaDictamen.setRows(10);
         textAreaDictamen.setSelectionStart(-1);
-        PanelConsultar.add(textAreaDictamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 280, 270));
+        PanelConsultar.add(textAreaDictamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 300, 270));
 
         LabelTituloConsulta.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         LabelTituloConsulta.setForeground(new java.awt.Color(255, 255, 255));
@@ -68,7 +68,7 @@ public class ConsultarOcupacion extends javax.swing.JFrame {
         textAreaConsulta.setSelectionStart(-1);
         ScrollPaneconsulta.setViewportView(textAreaConsulta);
 
-        PanelConsultar.add(ScrollPaneconsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 300, 270));
+        PanelConsultar.add(ScrollPaneconsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 280, 270));
 
         jButtonDictamen.setBackground(new java.awt.Color(0, 204, 102));
         jButtonDictamen.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N

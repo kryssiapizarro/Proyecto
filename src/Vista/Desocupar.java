@@ -5,20 +5,18 @@
  */
 package Vista;
 
-import Controlador.ListaConsultorios;
+
 import Modelo.Consultorios;
 import Modelo.Hospital;
 import Modelo.NodoConsultorio;
 import static Vista.AsignarMedico.consu;
 import static Vista.AsignarMedico.lista;
-import static Vista.AsignarMedico.textAreaConsultorios;
 import static Vista.AsignarMedico.textAreaMostrarMedicos;
 import static Vista.Interfaz.MostrarListaPacientes;
 import static Vista.Interfaz.hospi;
 import static Vista.Interfaz.li;
 import static Vista.Interfaz.receta;
 import static Vista.NuevoPaciente.colaMascotas;
-import java.awt.HeadlessException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -112,7 +110,7 @@ public class Desocupar extends javax.swing.JFrame {
         NodoConsultorio temp = Vista.AsignarMedico.consu.Inicio;
         if (consu.Comprobar(numeroDeConsultorio)) {
 
-            JOptionPane.showMessageDialog(null, "Todos los consultorios se encuentran disponible.No hay consultorios para desocupar");
+            JOptionPane.showMessageDialog(null, "Todos los consultorios se encuentran disponibles.No hay consultorios para desocupar");
         } else {
             while (temp != null) {
                 if (temp.getDato().getNumerocon() == numeroDeConsultorio && temp.getDato().getEstado() == "Ocupado") {

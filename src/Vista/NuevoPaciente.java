@@ -285,7 +285,7 @@ public class NuevoPaciente extends javax.swing.JFrame {
     private void ButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarActionPerformed
         this.dispose();
         new Interfaz().setVisible(true);
-        
+        MostrarListaPacientes.setText(colaMascotas.imprimir());
     }//GEN-LAST:event_ButtonCancelarActionPerformed
 
     private void BtnGuardarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarPacienteActionPerformed

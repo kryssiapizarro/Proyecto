@@ -60,8 +60,6 @@ public class Interfaz extends javax.swing.JFrame {
         LabelListaPacientes = new javax.swing.JLabel();
         LabelListaPacientes1 = new javax.swing.JLabel();
         MostrarListaPacientes = new java.awt.TextArea();
-        BotonDeEspera = new javax.swing.JButton();
-        recorrerInOrden = new javax.swing.JButton();
         MostrarListaEspera = new java.awt.TextArea();
         LabelListaPacientes2 = new javax.swing.JLabel();
         jMenuBarArriba = new javax.swing.JMenuBar();
@@ -177,20 +175,6 @@ public class Interfaz extends javax.swing.JFrame {
         MostrarListaPacientes.setRows(10);
         MostrarListaPacientes.setSelectionStart(-1);
 
-        BotonDeEspera.setText("Espera");
-        BotonDeEspera.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonDeEsperaActionPerformed(evt);
-            }
-        });
-
-        recorrerInOrden.setText("inOrden");
-        recorrerInOrden.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                recorrerInOrdenActionPerformed(evt);
-            }
-        });
-
         MostrarListaEspera.setEditable(false);
         MostrarListaEspera.setFont(new java.awt.Font("Microsoft New Tai Lue", 0, 14)); // NOI18N
 
@@ -210,17 +194,11 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(LabelListaPacientes1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(159, 159, 159))
                     .addGroup(ContenedorLayout.createSequentialGroup()
+                        .addGap(66, 66, 66)
                         .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ContenedorLayout.createSequentialGroup()
-                                .addGap(84, 84, 84)
-                                .addComponent(BotonDeEspera, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(62, 62, 62)
-                                .addComponent(recorrerInOrden))
-                            .addGroup(ContenedorLayout.createSequentialGroup()
-                                .addGap(66, 66, 66)
-                                .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabelListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(MostrarListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(LabelListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MostrarListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
                         .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ContenedorLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
@@ -245,10 +223,6 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(MostrarListaEspera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(MostrarListaPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE))
-                .addGap(44, 44, 44)
-                .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonDeEspera, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(recorrerInOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -326,7 +300,6 @@ public class Interfaz extends javax.swing.JFrame {
        Desocupar desocupa= new Desocupar();
        desocupa.setVisible(true);
        desocupa.setLocationRelativeTo(null);
-       
        textAreaConsultoriosOcupados.setText(consu.ListaOcupados().MostarTodo());
     }//GEN-LAST:event_Desocupar_ConsultorioMouseClicked
 
@@ -337,27 +310,6 @@ public class Interfaz extends javax.swing.JFrame {
         consulta.setLocationRelativeTo(null);
         textAreaConsulta.setText(consu.ListaOcupados().MuestraConsultorios());
     }//GEN-LAST:event_Consultar1MouseClicked
-
-    private void BotonDeEsperaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDeEsperaActionPerformed
-        // TODO add your handling code here:
-        Mascotas mascota = new Mascotas();
-        if(colaDeMascotas.estaVacia()){
-            JOptionPane.showMessageDialog(null, "No hay pacientes para agregar");
-        }else{
-        mascota = colaDeMascotas.extraer();
-        arbolito.agregarNodo(mascota);
-        }
-    }//GEN-LAST:event_BotonDeEsperaActionPerformed
-
-    private void recorrerInOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recorrerInOrdenActionPerformed
-        // TODO add your handling code here:
-        AsignarMedico consultando = new AsignarMedico();
-        if (!consultando.arbolito.estaVacio()) {
-                            consultando.arbolito.inOrden(arbolito.raiz);
-                        } else {
-                            JOptionPane.showMessageDialog(null, "El arbol está vacío");
-                        }
-    }//GEN-LAST:event_recorrerInOrdenActionPerformed
 
     private void jMenuItemAlmacenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAlmacenarActionPerformed
       this.setVisible(false);
@@ -407,7 +359,6 @@ public class Interfaz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Archivos;
     private javax.swing.JLabel Asignar_Medico;
-    private javax.swing.JButton BotonDeEspera;
     private javax.swing.JLabel Consultar1;
     private javax.swing.JPanel Contenedor;
     private javax.swing.JLabel Desocupar_Consultorio;
@@ -425,7 +376,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemAlmacenar;
     private javax.swing.JMenuItem jMenuItemDiagnosticos;
     private javax.swing.JMenuItem jMenuItemRecuperar;
-    private javax.swing.JButton recorrerInOrden;
     // End of variables declaration//GEN-END:variables
 
 
