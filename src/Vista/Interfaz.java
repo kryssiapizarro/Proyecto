@@ -22,6 +22,7 @@ import static Vista.AsignarMedico.medico4;
 import static Vista.AsignarMedico.textAreaConsultorios;
 import static Vista.AsignarMedico.textAreaMostrarMedicos;
 import static Vista.ConsultarOcupacion.textAreaConsulta;
+import static Vista.Desocupar.textAreaConsultoriosOcupados;
 import static Vista.MostrarInfoHospital.textAreaInformación;
 
 import javax.swing.JOptionPane;
@@ -321,28 +322,12 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_Asignar_MedicoMouseClicked
     
     private void Desocupar_ConsultorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Desocupar_ConsultorioMouseClicked
-     /* Consultorios consultorio = new Consultorios();
-        int a = (int) (Math.random()*receta.length)+0;
+     this.setVisible(false);
+       Desocupar desocupa= new Desocupar();
+       desocupa.setVisible(true);
+       desocupa.setLocationRelativeTo(null);
        
-       //consu.ListaOcupados();
-            if(consu.ListaOcupados().equals("Ocupado")){
-                Hospital hos = new Hospital();
-		consultorio.setEstado("Disponible");
-                JOptionPane.showMessageDialog(null, "Consultorio desocupado con exito");
-
-		hos.setCod(li);
-		hos.setConsultorio(consultorio);
-                hos.setReceta(receta[a]);
-
-		hospi.insertarInicio(hos);
-		textAreaConsultorios.setText(consu.MostarTodo());
-		textAreaMostrarMedicos.setText(lista.MostrarMedicos());
-
-                li = li+1;
-            }
-               JOptionPane.showMessageDialog(null, "En este momento todos los consultorios se encuentran desocupados");
-            */		
-			
+       textAreaConsultoriosOcupados.setText(consu.ListaOcupados().MostarTodo());
     }//GEN-LAST:event_Desocupar_ConsultorioMouseClicked
 
     private void Consultar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Consultar1MouseClicked

@@ -16,12 +16,12 @@ public class Consultorios implements Serializable{
 
 	}
 
-	public Consultorios(int numeconsultorio, String estado, Mascotas mascota, Medicos medico, Receta receta) {
+	public Consultorios(int numeconsultorio, String estado, Mascotas mascota, Medicos medico) {
 		this.Numerocon = numeconsultorio;
 		this.Estado = estado;
 		this.mascota = mascota;
 		this.medico = medico;
-                this.receta = receta;
+               
 	}
 
 	public String getEstado() {

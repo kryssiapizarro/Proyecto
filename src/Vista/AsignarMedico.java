@@ -31,10 +31,10 @@ public class AsignarMedico extends javax.swing.JFrame {
     static Medicos medico4 = new Medicos(4, "Maria", "Rodriguez");
 
     static ListaConsultorios consu = new ListaConsultorios();
-    static Consultorios consul1 = new Consultorios(1, "Disponible", null, null, null);
-    static Consultorios consul2 = new Consultorios(2, "Disponible", null, null, null);
-    static Consultorios consul3 = new Consultorios(3, "Disponible", null, null, null);
-    static Consultorios consul4 = new Consultorios(4, "Disponible", null, null, null);
+    static Consultorios consul1 = new Consultorios(1, "Disponible", null, null);
+    static Consultorios consul2 = new Consultorios(2, "Disponible", null, null);
+    static Consultorios consul3 = new Consultorios(3, "Disponible", null, null);
+    static Consultorios consul4 = new Consultorios(4, "Disponible", null, null);
 
     Arbol_ListaEspera arbolito = new Arbol_ListaEspera();
 
