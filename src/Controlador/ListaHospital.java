@@ -114,6 +114,32 @@ public class ListaHospital {
 		return a;
 
 	}
+        public String MostrarRecuperado() {
+		String a= "";
+
+		if(inicio != null) {
+
+			NodoHospital aux = inicio;
+
+			int cont =0;
+
+			while(aux != null) {
+
+				cont++;
+
+				a += aux.dato.DatosRecupera();
+				aux = aux.atras;
+			}
+
+//			JOptionPane.showMessageDialog(null, a);
+		}else {
+
+			JOptionPane.showMessageDialog(null, "NO HAY DATOS PARA MOSTRAR");
+		}
+		
+		return a;
+
+	}
 
 	//----Elimina datos de la lista-----
 	public void eliminaValor(Integer valor){

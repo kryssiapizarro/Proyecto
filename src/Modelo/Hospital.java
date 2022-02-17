@@ -48,7 +48,11 @@ public String toString() {
                 + "\nConsultorio: " + consultorio.toString()
 		+ "\nReceta: " + receta.toString() + "\n";
 }
-
+public String DatosRecupera() {
+	return "\t Informacíon de Pacientes"+
+               "\nConsultorio: " + consultorio.toString()
+		+ "\nReceta: " + receta.toString() + "\n";
+}
 
 
 

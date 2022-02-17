@@ -24,6 +24,7 @@ import static Vista.AsignarMedico.textAreaMostrarMedicos;
 import static Vista.ConsultarOcupacion.textAreaConsulta;
 import static Vista.Desocupar.textAreaConsultoriosOcupados;
 import static Vista.MostrarInfoHospital.textAreaInformación;
+import static Vista.Recuperar_Datos.jTextAreaDatosRecuperados;
 
 import javax.swing.JOptionPane;
 
@@ -313,8 +314,8 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void jMenuItemAlmacenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAlmacenarActionPerformed
       this.setVisible(false);
-      //AlmacenaHospi();
-      hospi.escritura(); 
+      hospi.escritura();
+      new Interfaz().setVisible(true);
     }//GEN-LAST:event_jMenuItemAlmacenarActionPerformed
 
     private void jMenuItemDiagnosticosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDiagnosticosActionPerformed
@@ -327,19 +328,14 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void jMenuItemRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRecuperarActionPerformed
       this.setVisible(false);
+      Recuperar_Datos recupera= new Recuperar_Datos();
+      recupera.setVisible(true);
+      recupera.setLocationRelativeTo(null);
+      
        hospi.lectura();
+       jTextAreaDatosRecuperados.setText(hospi.MostrarRecuperado());
     }//GEN-LAST:event_jMenuItemRecuperarActionPerformed
 
-  
-  /*static JFrame Principal;
-	private static JTextField nombreanimal;
-	private static JTextField edadanimal;
-	private static JTextField raza;
-	private static JTextField nombredueño;
-	private static JTextField codmedico;
-	public static JTextArea MuestraFila = new JTextArea();
-	public static JTextArea MuestraConsul = new JTextArea();
-	public static JTextArea textAreaDoctores = new JTextArea();*/
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(() -> {
