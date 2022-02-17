@@ -8,6 +8,16 @@ public class NodoListaEspera implements Serializable {
     private static final long serialVersionUID = 1L;
     public Mascotas dato;
     public NodoListaEspera hijoIzquierdo, hijoDerecho;
+    int codigoDelPaciente;
+
+    public int getCodigoDelPaciente() {
+        return codigoDelPaciente;
+    }
+
+    public void setCodigoDelPaciente(int codigoDelPaciente) {
+        this.codigoDelPaciente = codigoDelPaciente;
+    }
+    
     
     public NodoListaEspera(Mascotas dato){
         this.dato = dato;
