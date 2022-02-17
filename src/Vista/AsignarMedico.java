@@ -36,7 +36,7 @@ public class AsignarMedico extends javax.swing.JFrame {
     static Consultorios consul3 = new Consultorios(3, "Disponible", null, null);
     static Consultorios consul4 = new Consultorios(4, "Disponible", null, null);
 
-    Arbol_ListaEspera arbolito = new Arbol_ListaEspera();
+    static Arbol_ListaEspera arbolito = new Arbol_ListaEspera();
 
     static String Dolencias[] = {"Moquillo", "Hepatitis", "Leptospirosis", "Parvovirus", "Rabia", "Conjuntivitis", "Alergias cutáneas", "Diarrea", "Cáncer"};
     static Dolencias Dolen[] = {
@@ -186,8 +186,7 @@ public class AsignarMedico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAsignarActionPerformed
-
-        Consultorios consultorio = new Consultorios();
+Consultorios consultorio = new Consultorios();
         Medicos medico = new Medicos();
         Mascotas mascota = new Mascotas();
 
@@ -254,7 +253,7 @@ public class AsignarMedico extends javax.swing.JFrame {
                             dialog.setAlwaysOnTop(this.isAlwaysOnTopSupported());
                             dialog.setVisible(true);
                             this.dispose();
-                            new Interfaz().setVisible(true);
+                            //new Interfaz().setVisible(true);
                             for (int i = 0; i < pacientesRestantes; i++) {//i va a ser menor a la cantidad de pacientes restantes
                                 if (NuevoPaciente.colaMascotas.estaVacia()) {
                                     JOptionPane.showMessageDialog(null, "No hay pacientes para agregar");
@@ -264,7 +263,7 @@ public class AsignarMedico extends javax.swing.JFrame {
                                 }
                             }
                             arbolito.inOrden(arbolito.raiz);//se recorre el arbol para mostrar la lista de espera
-                            MostrarListaEspera.setText(arbolito.toString());//Se muestra la lista de espera en el area de 
+                            MostrarListaEspera.setText(arbolito.toString());//Se muestra la lista de espera en el area de
                         }//termina el if que evalua si el contador es igual a cuatro
 
 
@@ -291,10 +290,12 @@ public class AsignarMedico extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ButtonAsignarActionPerformed
 
+    
     private void ButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarActionPerformed
         this.dispose();
         new Interfaz().setVisible(true);
         MostrarListaPacientes.setText(colaMascotas.imprimir());
+        MostrarListaEspera.setText(arbolito.toString());
     }//GEN-LAST:event_ButtonCancelarActionPerformed
 
     private void CodigoMedico(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CodigoMedico
