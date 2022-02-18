@@ -166,7 +166,7 @@ public class ListaConsultorios {
                     }else {
 			while(Actual != null) {
 			
-                            a += "Consultorio ("+Actual.dato.getNumerocon()+")-->"+Actual.getDato().getEstado()+"\n";
+                            a += "Consultorio "+Actual.dato.getNumerocon()+": "+Actual.getDato().getEstado()+"\n";
                             Actual = Actual.Siguiente;
 			}
 		}
@@ -185,7 +185,7 @@ public class ListaConsultorios {
                     }else {
 			while(Actual != null) {
                             if(Actual.getDato().getEstado() == "Ocupado"){
-                            a += "Consultorio ("+Actual.dato.getNumerocon()+")-->"+Actual.getDato().getEstado()+"\n";
+                            a += "Consultorio "+Actual.dato.getNumerocon()+", Estado: "+Actual.getDato().getEstado()+"\n";
                             Actual = Actual.Siguiente;
                             }else{
                                 Actual = Actual.Siguiente;

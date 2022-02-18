@@ -210,8 +210,8 @@ public class ListaEnlazadaMedicos {
             }else {
 		while(Actual != null) {
 
-                    a += "Doc:"+Actual.getDato().getNombre()+", cod("+Actual.dato.getCodMedico()+")\t Estado:("+Actual.getDato().getEstado()+
-                            ")\n-----------------------------------------------------------"+"\n";
+                    a += "Doc: "+Actual.getDato().getNombre()+", Cod: "+Actual.dato.getCodMedico()+"\t Estado:"+Actual.getDato().getEstado()+
+                            "\n-----------------------------------------------------------"+"\n";
                     Actual = Actual.siguiente;
 		}
 	}
