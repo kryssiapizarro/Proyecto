@@ -232,7 +232,7 @@ public class ListaConsultorios {
                     // Disminuye el contador de tamaño de la lista.
         //            tamanio--;
                 }
-                 Consultorios consul1 = new Consultorios(referencia, "Desocupado", null, null);
+                 Consultorios consul1 = new Consultorios(referencia, "Disponible", null, null);
                   agregarAlFinal(consul1);
             }
         

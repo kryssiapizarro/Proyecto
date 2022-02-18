@@ -140,8 +140,9 @@ public class Arbol_ListaEspera {
 
     @Override
     public String toString() {
-        return "Lista De Espera \n\n" 
-                + Arrays.toString(listaDeEspera.toArray()).replace("[", "").replace("]", "").replace(",", "").replace("null", "Desconocido") + "\n";
+        return "Lista De Espera \n" +
+                "\n************************"+ Arrays.toString(listaDeEspera.toArray()).replace("[", "").replace("]", "").replace(",", "").replace("null", "Desconocido") + "\n"+
+                "\n************************";
     }
     
 }
