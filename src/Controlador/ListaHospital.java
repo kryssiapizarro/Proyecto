@@ -86,6 +86,48 @@ public class ListaHospital {
 
 		}
 	}
+        public void insertarRecuperar(Hospital dato){
+
+		NodoHospital nuevo = new NodoHospital(dato);
+
+                    NodoHospital recorre1;
+                    NodoHospital recorre2;
+                    //int cont = 0;
+                    //NodoHospital aux;
+                    //recorre1 = inicio;
+                    if(inicio == null){
+                         inicio=nuevo;
+                        nuevo.adelante=null;
+                    }else{
+                         recorre1 = inicio;
+                          while (recorre1 != null) {
+                            recorre2 = recorre1.getAdelante();// la clasificacion debe ir al inicio
+                            
+                            if(nuevo.dato.consultorio.mascota.getClasificacion() <= recorre1.dato.consultorio.mascota.Clasificacion){
+                                nuevo.adelante=inicio;
+                                inicio=nuevo;
+                                break;
+                            }else{// la clasificacion mascota debe ir al final
+                                if(nuevo.dato.consultorio.mascota.getClasificacion() > recorre1.dato.consultorio.mascota.Clasificacion && recorre2 == null){
+                                    recorre1.adelante= nuevo;
+                                    nuevo.adelante=null;
+                                    break;
+                                }else{
+                                    //nuevo paciente con clasficacion en medio de otras clasificaciones
+                                    if(recorre1.dato.consultorio.mascota.getClasificacion() < nuevo.dato.consultorio.mascota.Clasificacion && recorre2.dato.consultorio.mascota.Clasificacion > nuevo.dato.consultorio.mascota.Clasificacion ){
+                                        recorre1.adelante=nuevo;
+                                        nuevo.adelante= recorre2;
+                                        break;
+                                    }
+                                    else{
+                                        recorre1=recorre1.adelante;
+                                        
+                                    }
+                                }
+                            }
+                    }
+                    }
+        }
 
 	//----Muestra los datos de la lista----
 	public String Mostrar() {
@@ -191,7 +233,7 @@ public class ListaHospital {
 			
 			while(aux != null) {
 				oss.writeObject(aux.getDato());
-				aux = aux.getAdelante();
+				aux = aux.atras;
 			}
 
 			oss.close();

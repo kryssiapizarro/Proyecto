@@ -294,7 +294,17 @@ public class NuevoPaciente extends javax.swing.JFrame {
             Paciente.setEdad(Integer.parseInt(TextFieldEdadMascota.getText()));
             Paciente.setRaza(TextFieldRaza.getText());
             Paciente.setDueño(TextFieldDueno.getText());
-            Paciente.setClasificacion((String) ComboBox_Clasificación.getSelectedItem());
+            switch((String) ComboBox_Clasificación.getSelectedItem()){
+                    case  "Gato" -> Paciente.setClasificacion(0);
+                    
+                    case  "Perro" -> Paciente.setClasificacion(1);
+                    
+                    case  "Ave" -> Paciente.setClasificacion(2);
+                    
+                    case  "Roedor" -> Paciente.setClasificacion(3);
+                    
+                    case  "Exóticos" -> Paciente.setClasificacion(4);
+                }
                 
             
             colaMascotas.insertar(Paciente);

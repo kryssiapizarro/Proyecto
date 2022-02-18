@@ -1,10 +1,9 @@
-
 package Modelo;
 import java.io.Serializable;
 
 public class Mascotas implements Serializable {
 private static final long serialVersionUID = 1L;  
-public String Clasificacion; // variable para indicar el tipo de mascota
+public int Clasificacion; // variable para indicar el tipo de mascota
 public String Nombre;
 public String Raza; 
 public String Dueño; 
@@ -15,7 +14,7 @@ public int CodPaciente;
     public Mascotas() {
     }
 
-    public Mascotas(String Clasificacion, String Nombre, String Raza, String Dueño, int Edad, int CodPaciente) {
+    public Mascotas(int Clasificacion, String Nombre, String Raza, String Dueño, int Edad, int CodPaciente) {
 		this.Clasificacion = Clasificacion; 
 		this.Nombre = Nombre;
 		this.Raza = Raza;
@@ -23,11 +22,11 @@ public int CodPaciente;
 		this.Edad = Edad; 
 		this.CodPaciente = CodPaciente;
 	}
-    public String getClasificacion() {
+    public int getClasificacion() {
         return Clasificacion;
     }
 
-    public void setClasificacion(String Clasificacion) {
+    public void setClasificacion(int Clasificacion) {
         this.Clasificacion = Clasificacion;
     }
 
@@ -81,9 +80,19 @@ public int CodPaciente;
 
     @Override
     public String toString() {
-        return "\t    Información del Paciente" + "\nClasificacion: " + Clasificacion + "\nNombre: " + Nombre + 
+        String nombreClasificacion[] = {"Gato", "Perro", "Ave", "Roedor","Exóticos"};
+        String nombreClasifica= new String();
+        for(int i=0; i < nombreClasificacion.length; i++){
+            if(Clasificacion == i){
+                
+                nombreClasifica= nombreClasificacion[i];
+            }
+        }
+        return "\t    Información del Paciente" + "\nClasificacion: " + nombreClasifica + "\nNombre: " + Nombre + 
                 "\nRaza: " + Raza + "\nDueño: " + Dueño +
                 "\nDolencia: " + Dolencia + "\nEdad: " + Edad + "\nNúmero de paciente:" + CodPaciente;
     }
+   
     
 }
+

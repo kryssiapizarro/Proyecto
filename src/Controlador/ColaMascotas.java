@@ -89,7 +89,7 @@ public class ColaMascotas {
 	            a += "\n"
                             //+reco.getDato().getCodPaciente()
                              +"Paciente: "+reco.getDato().getNombre()
-                             +"\nClasificación: "+reco.getDato().getClasificacion()+
+                             +"\nDueño: "+reco.getDato().getDueño()+
                             "\n*******************************\n";
 	            reco=reco.getNext();
 	        }

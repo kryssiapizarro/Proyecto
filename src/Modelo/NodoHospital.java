@@ -6,7 +6,7 @@ public class NodoHospital implements Serializable{
 
     private static final long serialVersionUID = 1L;
     public Hospital dato;
-    NodoHospital adelante;
+    public NodoHospital adelante;
     public NodoHospital atras;
 
 	public NodoHospital (Hospital entrada){
