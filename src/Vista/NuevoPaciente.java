@@ -290,7 +290,10 @@ public class NuevoPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelarActionPerformed
 
     private void BtnGuardarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarPacienteActionPerformed
-            Mascotas Paciente= new Mascotas();
+        if(TextFieldDueno.getText().isEmpty() || TextFieldNombreMascota.getText().isEmpty() || TextFieldEdadMascota.getText().isEmpty() || TextFieldRaza.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "No pueden haber datos en blanco", "Error",JOptionPane.ERROR_MESSAGE);
+        }else{
+        Mascotas Paciente= new Mascotas();
             Paciente.setNombre(TextFieldNombreMascota.getText());
             Paciente.setEdad(Integer.parseInt(TextFieldEdadMascota.getText()));
             Paciente.setRaza(TextFieldRaza.getText());
@@ -315,7 +318,7 @@ public class NuevoPaciente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El paciente esta registrado. \tUsted esta haciendo fila en la posicion: "+colaMascotas.TamanioFila());
             MostrarListaPacientes.setText(colaMascotas.imprimir());
             //Paciente.setCodPaciente(colaMascotas.generarCod());
-            
+        
             int op = JOptionPane.showConfirmDialog(null, "¿Desea registrar otro paciente?", "Información", JOptionPane.YES_NO_OPTION);
 
 				if(op == JOptionPane.YES_OPTION) {
@@ -329,12 +332,14 @@ public class NuevoPaciente extends javax.swing.JFrame {
 					new Interfaz().setVisible(true);
                                         MostrarListaPacientes.setText(colaMascotas.imprimir());
 				}
+        }
                                 
 		this.addWindowListener(new WindowAdapter() {
 			public void windowClosing( WindowEvent evt ) {
 				new Interfaz().setVisible(true);
                                 
 			}
+                        
 		});                
     }//GEN-LAST:event_BtnGuardarPacienteActionPerformed
 

@@ -103,7 +103,7 @@ public class AsignarMedico extends javax.swing.JFrame {
         LabelConsultorios.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelConsultorios.setForeground(new java.awt.Color(51, 153, 255));
         LabelConsultorios.setText(" Consultorios");
-        ContenedorImagemedico.add(LabelConsultorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 120, 30));
+        ContenedorImagemedico.add(LabelConsultorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 140, 30));
 
         ScrollPaneConsultorios.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         ScrollPaneConsultorios.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -117,7 +117,7 @@ public class AsignarMedico extends javax.swing.JFrame {
 
         LabelMedicos.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelMedicos.setForeground(new java.awt.Color(0, 204, 153));
-        LabelMedicos.setText("Lista de Medicos");
+        LabelMedicos.setText("      Medicos");
         ContenedorImagemedico.add(LabelMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 150, 30));
 
         ScrollPaneMedicos.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -153,8 +153,8 @@ public class AsignarMedico extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic Medium", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 153));
-        jLabel2.setText("Seleccione Consultorio: ");
-        ContenedorImagemedico.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 180, 30));
+        jLabel2.setText("Seleccione consultorio: ");
+        ContenedorImagemedico.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 200, 30));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 1, 16)); // NOI18N

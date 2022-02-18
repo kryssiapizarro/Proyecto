@@ -54,7 +54,7 @@ public class ConsultarOcupacion extends javax.swing.JFrame {
         LabelTituloConsulta.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         LabelTituloConsulta.setForeground(new java.awt.Color(255, 255, 255));
         LabelTituloConsulta.setText("Dictamen");
-        PanelConsultar.add(LabelTituloConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 80, 30));
+        PanelConsultar.add(LabelTituloConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 110, 30));
 
         ScrollPaneconsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), new java.awt.Color(204, 204, 204)));
         ScrollPaneconsulta.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -99,13 +99,13 @@ public class ConsultarOcupacion extends javax.swing.JFrame {
 
         LabelTituloConsulta1.setFont(new java.awt.Font("Yu Gothic Medium", 1, 22)); // NOI18N
         LabelTituloConsulta1.setForeground(new java.awt.Color(255, 255, 255));
-        LabelTituloConsulta1.setText("Consulta de Ocupación");
-        PanelConsultar.add(LabelTituloConsulta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 240, 30));
+        LabelTituloConsulta1.setText("Consulta De Ocupación");
+        PanelConsultar.add(LabelTituloConsulta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 270, 30));
 
         LabelTituloConsulta2.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         LabelTituloConsulta2.setForeground(new java.awt.Color(255, 255, 255));
-        LabelTituloConsulta2.setText("Pacientes recibiendo atención");
-        PanelConsultar.add(LabelTituloConsulta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 270, 30));
+        LabelTituloConsulta2.setText("Pacientes Recibiendo Atención");
+        PanelConsultar.add(LabelTituloConsulta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 300, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
