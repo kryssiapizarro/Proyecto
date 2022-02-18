@@ -173,6 +173,29 @@ public class ListaConsultorios {
 
             return a;
 	}
+        
+        //MUESTRA SOLAMENTE LOS OCUPADOS
+        	public String mostrarOcupados() {
+		String a = "";
+		NodoConsultorio Actual = Inicio;
+
+                    if(Actual == null) {
+
+                        JOptionPane.showMessageDialog(null, "La lista aún no posee elementos");
+                    }else {
+			while(Actual != null) {
+                            if(Actual.getDato().getEstado() == "Ocupado"){
+                            a += "Consultorio ("+Actual.dato.getNumerocon()+")-->"+Actual.getDato().getEstado()+"\n";
+                            Actual = Actual.Siguiente;
+                            }else{
+                                Actual = Actual.Siguiente;
+                            }
+			}
+		}
+
+            return a;
+	}
+
 
 	public String MuestraConsultorios() {
 		String a = "";
