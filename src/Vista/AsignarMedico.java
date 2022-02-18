@@ -285,7 +285,7 @@ Consultorios consultorio = new Consultorios();
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            JOptionPane.showMessageDialog(null, "No hay clientes que agregar");
             e.printStackTrace();
         }
     }//GEN-LAST:event_ButtonAsignarActionPerformed
