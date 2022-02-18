@@ -5,10 +5,11 @@
  */
 package Vista;
 
-
 import Modelo.Consultorios;
 import Modelo.Hospital;
+import Modelo.Mascotas;
 import Modelo.NodoConsultorio;
+import Modelo.NodoListaEspera;
 import static Vista.AsignarMedico.arbolito;
 import static Vista.AsignarMedico.consu;
 import static Vista.AsignarMedico.lista;
@@ -19,9 +20,12 @@ import static Vista.Interfaz.hospi;
 import static Vista.Interfaz.li;
 import static Vista.Interfaz.receta;
 import static Vista.NuevoPaciente.colaMascotas;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -30,6 +34,7 @@ import javax.swing.JOptionPane;
 public class Desocupar extends javax.swing.JFrame {
 
     AsignarMedico medico = new AsignarMedico();
+    Timer stopwatch;
 
     /**
      * Creates new form Desocupar
@@ -106,40 +111,10 @@ public class Desocupar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonDesocuparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDesocuparActionPerformed
-
-        int a = (int) (Math.random() * receta.length) + 0;
-        int numeroDeConsultorio = (int) (Math.random() * 4 + 1);
-        NodoConsultorio temp = Vista.AsignarMedico.consu.Inicio;
-        if (consu.Comprobar(numeroDeConsultorio)) {
-
-            JOptionPane.showMessageDialog(null, "Todos los consultorios se encuentran disponibles.No hay consultorios para desocupar");
+        if (textAreaConsultoriosOcupados.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Todos los consultorios se encuentran disponibles. No hay consultorios para desocupar");
         } else {
-            while (temp != null) {
-                if (temp.getDato().getNumerocon() == numeroDeConsultorio && temp.getDato().getEstado() == "Ocupado") {
-                    try {
-                        Hospital hos = new Hospital();
-                        //int consultoriosOcupados = (int) (Math.random()*consu.ListaOcupados().TamanioFila())+0;
-                        Consultorios con = consu.Cambio(numeroDeConsultorio);
-
-                        hos.setCod(li);
-                        hos.setConsultorio(con);
-                        hos.setReceta(receta[a]);
-
-                        hospi.insertarInicio(hos);
-                        textAreaConsultoriosOcupados.setText(consu.MostarTodo());
-                        textAreaMostrarMedicos.setText(lista.MostrarMedicos());
-                        System.out.println("Se ha desocupado el consultorio " + numeroDeConsultorio);
-                        li = li + 1;
-                    } catch (Exception ex) {
-                        Logger.getLogger(Desocupar.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    return;
-                }else{
-                    temp = temp.Siguiente;
-                    numeroDeConsultorio = (int) (Math.random() * 4 + 1);
-                }
-            }
-
+            desocupar();
         }
 
     }//GEN-LAST:event_ButtonDesocuparActionPerformed
@@ -150,6 +125,73 @@ public class Desocupar extends javax.swing.JFrame {
         MostrarListaPacientes.setText(colaMascotas.imprimir());
         MostrarListaEspera.setText(arbolito.toString());
     }//GEN-LAST:event_ButtonCancelarActionPerformed
+
+    public void desocupar() {
+        ActionListener action = new ActionListener() {
+            NodoConsultorio temp = Vista.AsignarMedico.consu.Inicio;
+            public void actionPerformed(ActionEvent e) {
+                int a = (int) (Math.random() * receta.length) + 0;
+                int numeroDeConsultorio = (int) (Math.random() * 4 + 1);
+                Mascotas mascota = new Mascotas();
+                NodoListaEspera listaEspera = new NodoListaEspera(mascota);
+                while (temp != null) {
+                    if (temp.getDato().getNumerocon() == numeroDeConsultorio && temp.getDato().getEstado() == "Ocupado") {
+                        try {
+                            Hospital hos = new Hospital();
+                            Consultorios con = consu.Cambio(numeroDeConsultorio);
+
+                            hos.setCod(li);
+                            hos.setConsultorio(con);
+                            hos.setReceta(receta[a]);
+
+                            hospi.insertarInicio(hos);
+                            //temp.getDato().setEstado("Disponible");
+
+                            textAreaMostrarMedicos.setText(lista.MostrarMedicos());
+                            System.out.println("Se ha desocupado el consultorio " + numeroDeConsultorio);
+                            JOptionPane.showMessageDialog(null, "Se ha desocupado el consultorio " + numeroDeConsultorio);
+                            li = li + 1;
+//                        listaEspera.setCodigoDelPaciente(temp.getDato().getMascota().getCodPaciente());
+//                        listaEspera = medico.arbolito.raiz;
+//                        System.out.println("-------------RAIZ EN DESOCUPAR--------------");
+//                        System.out.println(medico.arbolito.raiz.getDato());
+//                        System.out.println("--------------------------------------------");
+//                        if(medico.arbolito.estaVacio()){
+//                            System.out.println("ESTA VACIO EL ARBOL");
+//                        }else{
+//                        mascota = medico.arbolito.eliminar(listaEspera, temp);
+//                        NuevoPaciente.colaMascotas.insertar(mascota);
+//                        MostrarListaPacientes.setText(NuevoPaciente.colaMascotas.imprimir());
+//                        }
+                            MostrarListaPacientes.setText(NuevoPaciente.colaMascotas.imprimir());
+                            textAreaConsultoriosOcupados.setText(consu.mostrarOcupados());
+                            temp = null;
+                            break;
+
+                        } catch (Exception ex) {
+                            Logger.getLogger(Desocupar.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        break;
+                        //return;
+                    } else if (temp.getDato().getNumerocon() == numeroDeConsultorio && temp.getDato().getEstado() == "Disponible") {
+                        temp = temp.Siguiente;
+                        System.out.println(temp.getDato().getNumerocon());
+                        numeroDeConsultorio = (int) (Math.random() * 4 + 1);
+                    } else if (temp.getDato().getNumerocon() != numeroDeConsultorio && temp.getDato().getEstado() == "Disponible") {
+                        temp = temp.Siguiente;
+                        System.out.println(temp.getDato().getNumerocon());
+                        numeroDeConsultorio = (int) (Math.random() * 4 + 1);
+                    } else if (temp.getDato().getNumerocon() != numeroDeConsultorio && temp.getDato().getEstado() == "Ocupado") {
+                        System.out.println(temp.getDato().getNumerocon());
+                        numeroDeConsultorio = (int) (Math.random() * 4 + 1);
+                    }
+                }
+                temp = null;
+            }
+        };
+        stopwatch = new Timer(0, action);
+        stopwatch.start();
+    }
 
     /**
      * @param args the command line arguments
