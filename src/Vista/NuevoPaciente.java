@@ -4,6 +4,7 @@ package Vista;
 import Controlador.ColaMascotas;
 import Modelo.Mascotas;
 import static Vista.Interfaz.MostrarListaPacientes;
+import static Vista.Interfaz.cod;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -294,6 +295,8 @@ public class NuevoPaciente extends javax.swing.JFrame {
             Paciente.setEdad(Integer.parseInt(TextFieldEdadMascota.getText()));
             Paciente.setRaza(TextFieldRaza.getText());
             Paciente.setDueño(TextFieldDueno.getText());
+            Paciente.setCodPaciente(cod);
+            cod=cod+1;
             switch((String) ComboBox_Clasificación.getSelectedItem()){
                     case  "Gato" -> Paciente.setClasificacion(0);
                     

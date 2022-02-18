@@ -10,7 +10,7 @@ public String Dueño;
 public String Dolencia;
 public int Edad; 
 public int CodPaciente; 
-
+//inicializo cod paciente
     public Mascotas() {
     }
 

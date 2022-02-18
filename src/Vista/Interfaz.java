@@ -40,6 +40,7 @@ public class Interfaz extends javax.swing.JFrame {
 	new Receta(5, "Holix", 250, 3)};   
         static ListaHospital hospi = new ListaHospital();
         static int lim = 4, li=1;
+        public static int cod=1000;
         
     public Interfaz() {
         initComponents();

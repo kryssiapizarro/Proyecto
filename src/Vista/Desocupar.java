@@ -9,9 +9,11 @@ package Vista;
 import Modelo.Consultorios;
 import Modelo.Hospital;
 import Modelo.NodoConsultorio;
+import static Vista.AsignarMedico.arbolito;
 import static Vista.AsignarMedico.consu;
 import static Vista.AsignarMedico.lista;
 import static Vista.AsignarMedico.textAreaMostrarMedicos;
+import static Vista.Interfaz.MostrarListaEspera;
 import static Vista.Interfaz.MostrarListaPacientes;
 import static Vista.Interfaz.hospi;
 import static Vista.Interfaz.li;
@@ -140,55 +142,13 @@ public class Desocupar extends javax.swing.JFrame {
 
         }
 
-        //consu.DesocuparConsultorio();
-        /* SIRVE PERO PRESENTA UN ERROR
-            int a = (int) (Math.random()*receta.length)+0;
-            int numeroDeConsultorio = (int) (Math.random()*4+1);
-                if(consu.Comprobar(numeroDeConsultorio)){
-              
-                  JOptionPane.showMessageDialog(null, "Todos los consultorios se encuentran disponible.No hay consultorios para desocupar");  
-                 }else{
-                try {
-                    Hospital hos = new Hospital();
-                    //int consultoriosOcupados = (int) (Math.random()*consu.ListaOcupados().TamanioFila())+0;
-                    Consultorios con = consu.Cambio(numeroDeConsultorio);
-
-                    hos.setCod(li);
-                    hos.setConsultorio(con);
-                    hos.setReceta(receta[a]);
-
-                    hospi.insertarInicio(hos);
-                    textAreaConsultoriosOcupados.setText(consu.MostarTodo());
-                    textAreaMostrarMedicos.setText(lista.MostarTodo2());
-                    System.out.println("Se ha desocupado el consultorio "+numeroDeConsultorio);
-                    li = li+1;
-                } catch (Exception ex) {
-                    Logger.getLogger(Desocupar.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                }
-            
-            
-            
-            Hospital hos = new Hospital();
-            //int consultoriosOcupados = (int) (Math.random()*consu.ListaOcupados().TamanioFila())+0;
-            ListaConsultorios con = consu.DesocuparConsultorio();
-            
-            hos.setCod(li);
-            hos.setConsultorio(con);
-            hos.setReceta(receta[a]);
-            
-            hospi.insertarInicio(hos);
-            textAreaConsultoriosOcupados.setText(consu.MostarTodo());
-            textAreaMostrarMedicos.setText(lista.MostarTodo2());
-            li = li+1;
-         */
-
     }//GEN-LAST:event_ButtonDesocuparActionPerformed
 
     private void ButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarActionPerformed
         this.dispose();
         new Interfaz().setVisible(true);
         MostrarListaPacientes.setText(colaMascotas.imprimir());
+        MostrarListaEspera.setText(arbolito.toString());
     }//GEN-LAST:event_ButtonCancelarActionPerformed
 
     /**

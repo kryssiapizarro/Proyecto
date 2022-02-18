@@ -8,7 +8,7 @@ public class Receta implements Serializable{
 	public int Num_medicamentos;
 	public String Nombre_Medicamento; 
 	public int Dosis;
-	public int Cantidad = (int) (Math.random() * 3+1);;
+	public int Cantidad = (int) (Math.random() * 3+1);
         public int CodigoMeidcamento;
 
         public int getNum_medicamentos() {

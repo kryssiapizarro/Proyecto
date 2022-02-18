@@ -5,6 +5,11 @@
  */
 package Vista;
 
+import static Vista.AsignarMedico.arbolito;
+import static Vista.Interfaz.MostrarListaEspera;
+import static Vista.Interfaz.MostrarListaPacientes;
+import static Vista.NuevoPaciente.colaMascotas;
+
 /**
  *
  * @author Kryssia Pizarro
@@ -103,6 +108,8 @@ public class Recuperar_Datos extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
 	new Interfaz().setVisible(true);
+        MostrarListaPacientes.setText(colaMascotas.imprimir());
+        MostrarListaEspera.setText(arbolito.toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

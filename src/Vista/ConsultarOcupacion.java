@@ -5,7 +5,9 @@
  */
 package Vista;
 
+import static Vista.AsignarMedico.arbolito;
 import static Vista.AsignarMedico.consu;
+import static Vista.Interfaz.MostrarListaEspera;
 import static Vista.Interfaz.MostrarListaPacientes;
 import static Vista.NuevoPaciente.colaMascotas;
 
@@ -129,6 +131,7 @@ public class ConsultarOcupacion extends javax.swing.JFrame {
         this.dispose();
         new Interfaz().setVisible(true);
         MostrarListaPacientes.setText(colaMascotas.imprimir());
+        MostrarListaEspera.setText(arbolito.toString());
     }//GEN-LAST:event_ButtonCancelarActionPerformed
 
     /**

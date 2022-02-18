@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import static Vista.AsignarMedico.arbolito;
+import static Vista.Interfaz.MostrarListaEspera;
 import static Vista.Interfaz.MostrarListaPacientes;
 import static Vista.NuevoPaciente.colaMascotas;
 
@@ -82,7 +84,8 @@ public class MostrarInfoHospital extends javax.swing.JFrame {
     private void BTNAceptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNAceptaActionPerformed
         this.dispose();
 	new Interfaz().setVisible(true);
-        //MostrarListaPacientes.setText(colaMascotas.imprimir());
+        MostrarListaPacientes.setText(colaMascotas.imprimir());
+        MostrarListaEspera.setText(arbolito.toString());
     }//GEN-LAST:event_BTNAceptaActionPerformed
 
     /**
