@@ -151,19 +151,20 @@ public class Desocupar extends javax.swing.JFrame {
                             System.out.println("Se ha desocupado el consultorio " + numeroDeConsultorio);
                             JOptionPane.showMessageDialog(null, "Se ha desocupado el consultorio " + numeroDeConsultorio);
                             li = li + 1;
-//                        listaEspera.setCodigoDelPaciente(temp.getDato().getMascota().getCodPaciente());
-//                        listaEspera = medico.arbolito.raiz;
-//                        System.out.println("-------------RAIZ EN DESOCUPAR--------------");
-//                        System.out.println(medico.arbolito.raiz.getDato());
-//                        System.out.println("--------------------------------------------");
-//                        if(medico.arbolito.estaVacio()){
-//                            System.out.println("ESTA VACIO EL ARBOL");
-//                        }else{
-//                        mascota = medico.arbolito.eliminar(listaEspera, temp);
-//                        NuevoPaciente.colaMascotas.insertar(mascota);
-//                        MostrarListaPacientes.setText(NuevoPaciente.colaMascotas.imprimir());
-//                        }
-                            MostrarListaPacientes.setText(NuevoPaciente.colaMascotas.imprimir());
+                        listaEspera = medico.arbolito.raiz;
+                        listaEspera.setCodigoDelPaciente(temp.getDato().getMascota().getCodPaciente());
+                        System.out.println("-------------RAIZ EN DESOCUPAR--------------");
+                        System.out.println(medico.arbolito.raiz.getDato());
+                        System.out.println("--------------------------------------------");
+                        if(medico.arbolito.estaVacio()){
+                            System.out.println("ESTA VACIO EL ARBOL");
+                            JOptionPane.showMessageDialog(null, "No hay clientes en espera");
+                        }else{
+                        mascota = medico.arbolito.eliminar(listaEspera, temp);
+                        colaMascotas.insertar(mascota);
+                        MostrarListaPacientes.setText(colaMascotas.imprimir());
+                        }
+                            //MostrarListaPacientes.setText(NuevoPaciente.colaMascotas.imprimir());
                             textAreaConsultoriosOcupados.setText(consu.mostrarOcupados());
                             temp = null;
                             break;

@@ -1,73 +1,77 @@
-
 package Controlador;
 
 import Modelo.Mascotas;
 import Modelo.NodoMascotas;
 
 public class ColaMascotas {
-    	public NodoMascotas Inicio;
-	public NodoMascotas Fin;
-	int cont;
 
-	public ColaMascotas(){
-		Inicio=null;
-		Fin=null;
-	}
+    public NodoMascotas Inicio;
+    public NodoMascotas Fin;
+    int cont;
 
-	public void insertar(Mascotas dato){
-            NodoMascotas nuevamascota=new NodoMascotas(dato);
-            nuevamascota.setNext(null);
+    public ColaMascotas() {
+        Inicio = null;
+        Fin = null;
+    }
 
-                 if(Inicio==null && Fin==null){
+    public void insertar(Mascotas dato) {
+        NodoMascotas nuevamascota = new NodoMascotas(dato);
+        nuevamascota.setNext(null);
+        if (Inicio == null && Fin != null) {
+            Inicio = nuevamascota;
+        } else {
+            if (Inicio == null && Fin == null) {
+                Inicio = nuevamascota;
+                Fin = nuevamascota;
+                cont++;
 
-                     Inicio=nuevamascota;
-                     Fin=nuevamascota;
-                     cont++;
-                 }else {
-                     Fin.setNext(nuevamascota);
-                     Fin=Fin.getNext();
-                     cont++;
-                    }
-	}
+            } else {
+                Fin.setNext(nuevamascota);
+                Fin = Fin.getNext();
+                cont++;
+            }
+        }
+    }
 
-	public Mascotas extraer(){
-		Mascotas dato=Inicio.getDato();
-		Inicio=Inicio.getNext();
-		cont--;
-		return dato;
-	}
+    public Mascotas extraer() {
+        Mascotas dato = Inicio.getDato();
+        Inicio = Inicio.getNext();
+        cont--;
+        return dato;
+    }
 
-	public boolean estaVacia(){
-		boolean cola=false;
-		
-                    if(Inicio==null & Fin==null){
+    public boolean estaVacia() {
+        boolean cola = false;
 
-                            cola=true;
-                            System.out.println("La cola esta vacia");
+        if (Inicio == null & Fin == null) {
 
-                    }else{
-                            System.out.println("La cola contiene elementos");
-                            cola=false;
-                    }
-                    return cola;
-	}
+            cola = true;
+            System.out.println("La cola esta vacia");
 
-	public int contar(){
-		int contador=0;
-		NodoMascotas c=this.Inicio;
-		
-		while(c!=null){
-			contador++;
-			c=c.getNext();
-		}
-		//System.out.println("Numero de datos en la cola: "+contador);
-		return contador;
-	}
-	
-	public int TamanioFila() {
-		return cont;
-	}
-       /* public int generarCod(){
+        } else {
+            System.out.println("La cola contiene elementos");
+            cola = false;
+        }
+        return cola;
+    }
+
+    public int contar() {
+        int contador = 0;
+        NodoMascotas c = this.Inicio;
+
+        while (c != null) {
+            contador++;
+            c = c.getNext();
+        }
+        //System.out.println("Numero de datos en la cola: "+contador);
+        return contador;
+    }
+
+    public int TamanioFila() {
+        return cont;
+    }
+
+    /* public int generarCod(){
              String s = "";
              int codigo=0;
              
@@ -80,20 +84,20 @@ public class ColaMascotas {
                 }     return codigo;
             
         }*/
-	
-	public String imprimir() {
-	        NodoMascotas reco=Inicio;
-	        String a = "";
-	        //System.out.println("Listado de todos los elementos de la cola.");
-	        while (reco!=null) {
-	            a += "\n"
-                            //+reco.getDato().getCodPaciente()
-                             +"Paciente: "+reco.getDato().getNombre()
-                             +"\nDueño: "+reco.getDato().getDueño()+
-                            "\nCódigo Paciente: "+reco.getDato().getCodPaciente()+
-                            "\n*******************************\n";
-	            reco=reco.getNext();
-	        }
-	        return a;
-	    }
+
+    public String imprimir() {
+        NodoMascotas reco = Inicio;
+        String a = "";
+        //System.out.println("Listado de todos los elementos de la cola.");
+        while (reco != null) {
+            a += "\n"
+                    //+reco.getDato().getCodPaciente()
+                    + "Paciente: " + reco.getDato().getNombre()
+                    + "\nDueño: " + reco.getDato().getDueño()
+                    + "\nCódigo Paciente: " + reco.getDato().getCodPaciente()
+                    + "\n*******************************\n";
+            reco = reco.getNext();
+        }
+        return a;
+    }
 }

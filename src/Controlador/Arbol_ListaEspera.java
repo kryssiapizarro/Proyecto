@@ -57,6 +57,7 @@ public class Arbol_ListaEspera {
     }
     
     public Mascotas eliminar(NodoListaEspera auxiliar,NodoConsultorio nodo){
+        //auxiliar = raiz;
         NodoListaEspera padre = auxiliar;
         Mascotas mascota = new Mascotas();
         boolean esHijoIzquierdo = true;
@@ -66,11 +67,11 @@ public class Arbol_ListaEspera {
             if(nodo.getDato().getMascota().getCodPaciente()<auxiliar.getDato().getCodPaciente()){
                 esHijoIzquierdo = true;
                 auxiliar = auxiliar.hijoIzquierdo;
-                mascota = auxiliar.getDato();
+                //mascota = auxiliar.getDato();
             }else{
                 esHijoIzquierdo = false;
                 auxiliar = auxiliar.hijoDerecho;
-                mascota = auxiliar.getDato();
+                //mascota = auxiliar.getDato();
             }
             if(auxiliar == null){
                 JOptionPane.showMessageDialog(null, "No hay nada");
