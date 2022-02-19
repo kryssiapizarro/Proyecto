@@ -202,7 +202,7 @@ public class ListaConsultorios {
 		NodoConsultorio Actual = Inicio;
 
                     if(Actual == null) {
-			a="La lista no contiene datos";
+			a="No hay pacientes recibiendo atención";
                         
                     }else {
 			while(Actual != null) {
@@ -213,23 +213,7 @@ public class ListaConsultorios {
 		}
                     return a;
 	}
-        
-        public String MuestraDictamen() {
-		String a = "";
-		NodoConsultorio Actual = Inicio;
-
-                    if(Actual == null) {
-			a="La lista no contiene datos";
-                        
-                    }else {
-			while(Actual != null) {
-
-                            a += Actual.dato.MuestraDictamen();
-                            Actual = Actual.Siguiente;
-                    }
-		}
-                    return a;
-	}
+       
 	
 	public void removerPorReferencia(int referencia) throws HeadlessException, Exception{
 		

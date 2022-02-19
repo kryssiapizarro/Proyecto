@@ -141,9 +141,16 @@ public class Arbol_ListaEspera {
 
     @Override
     public String toString() {
-        return "Lista De Espera \n" +
-                "\n************************"+ Arrays.toString(listaDeEspera.toArray()).replace("[", "").replace("]", "").replace(",", "").replace("null", "Desconocido") + "\n"+
-                "\n************************";
+        String a="";
+        NodoListaEspera padre = raiz;
+        if (padre == null){
+            a="No hay pacientes en lista de espera";
+        }else{
+            while(padre != null) {
+            a+="Lista De Espera \n" +
+                 Arrays.toString(listaDeEspera.toArray()).replace("[", "").replace("]", "").replace(",", "").replace("null", "Desconocido") + "\n";
+            }
+        }
+        return a;
     }
-    
 }

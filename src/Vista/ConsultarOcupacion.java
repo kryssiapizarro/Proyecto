@@ -10,6 +10,7 @@ import static Vista.AsignarMedico.consu;
 import static Vista.Interfaz.MostrarListaEspera;
 import static Vista.Interfaz.MostrarListaPacientes;
 import static Vista.NuevoPaciente.colaMascotas;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,8 +30,6 @@ public class ConsultarOcupacion extends javax.swing.JFrame {
     private void initComponents() {
 
         PanelConsultar = new javax.swing.JPanel();
-        textAreaDictamen = new java.awt.TextArea();
-        LabelTituloConsulta = new javax.swing.JLabel();
         ScrollPaneconsulta = new javax.swing.JScrollPane();
         textAreaConsulta = new java.awt.TextArea();
         jButtonDictamen = new javax.swing.JButton();
@@ -42,19 +41,6 @@ public class ConsultarOcupacion extends javax.swing.JFrame {
 
         PanelConsultar.setBackground(new java.awt.Color(0, 153, 153));
         PanelConsultar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        textAreaDictamen.setColumns(10);
-        textAreaDictamen.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        textAreaDictamen.setEditable(false);
-        textAreaDictamen.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        textAreaDictamen.setRows(10);
-        textAreaDictamen.setSelectionStart(-1);
-        PanelConsultar.add(textAreaDictamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 300, 270));
-
-        LabelTituloConsulta.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
-        LabelTituloConsulta.setForeground(new java.awt.Color(255, 255, 255));
-        LabelTituloConsulta.setText("Dictamen");
-        PanelConsultar.add(LabelTituloConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 110, 30));
 
         ScrollPaneconsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), new java.awt.Color(204, 204, 204)));
         ScrollPaneconsulta.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -70,7 +56,7 @@ public class ConsultarOcupacion extends javax.swing.JFrame {
         textAreaConsulta.setSelectionStart(-1);
         ScrollPaneconsulta.setViewportView(textAreaConsulta);
 
-        PanelConsultar.add(ScrollPaneconsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 280, 270));
+        PanelConsultar.add(ScrollPaneconsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 290, 310));
 
         jButtonDictamen.setBackground(new java.awt.Color(0, 204, 102));
         jButtonDictamen.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
@@ -83,7 +69,7 @@ public class ConsultarOcupacion extends javax.swing.JFrame {
                 jButtonDictamenActionPerformed(evt);
             }
         });
-        PanelConsultar.add(jButtonDictamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, 140, 40));
+        PanelConsultar.add(jButtonDictamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, 140, 40));
 
         ButtonCancelar.setBackground(new java.awt.Color(255, 102, 102));
         ButtonCancelar.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
@@ -95,23 +81,23 @@ public class ConsultarOcupacion extends javax.swing.JFrame {
                 ButtonCancelarActionPerformed(evt);
             }
         });
-        PanelConsultar.add(ButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 120, 40));
+        PanelConsultar.add(ButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 430, 120, 40));
 
         LabelTituloConsulta1.setFont(new java.awt.Font("Yu Gothic Medium", 1, 22)); // NOI18N
         LabelTituloConsulta1.setForeground(new java.awt.Color(255, 255, 255));
         LabelTituloConsulta1.setText("Consulta De Ocupación");
-        PanelConsultar.add(LabelTituloConsulta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 270, 30));
+        PanelConsultar.add(LabelTituloConsulta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 270, 30));
 
         LabelTituloConsulta2.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         LabelTituloConsulta2.setForeground(new java.awt.Color(255, 255, 255));
         LabelTituloConsulta2.setText("Pacientes Recibiendo Atención");
-        PanelConsultar.add(LabelTituloConsulta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 300, 30));
+        PanelConsultar.add(LabelTituloConsulta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 300, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE)
+            .addComponent(PanelConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +110,7 @@ public class ConsultarOcupacion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonDictamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDictamenActionPerformed
-   textAreaDictamen.setText(consu.ListaOcupados().MuestraDictamen());       
+   JOptionPane.showMessageDialog(null, "Se ha generado el dictamen. Lo encuentras en Información diágnosticos");  
     }//GEN-LAST:event_jButtonDictamenActionPerformed
 
     private void ButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarActionPerformed
@@ -171,13 +157,11 @@ public class ConsultarOcupacion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonCancelar;
-    private javax.swing.JLabel LabelTituloConsulta;
     private javax.swing.JLabel LabelTituloConsulta1;
     private javax.swing.JLabel LabelTituloConsulta2;
     private javax.swing.JPanel PanelConsultar;
     public static javax.swing.JScrollPane ScrollPaneconsulta;
     private javax.swing.JButton jButtonDictamen;
     public static java.awt.TextArea textAreaConsulta;
-    public static java.awt.TextArea textAreaDictamen;
     // End of variables declaration//GEN-END:variables
 }

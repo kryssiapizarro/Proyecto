@@ -46,14 +46,31 @@ public void setReceta(Receta receta) {
 public String toString() {
 	return "\tDictamen #"+codigo
                 + "\nConsultorio: " + consultorio.toString()
-		+ "\nReceta: " + receta.toString() + "\n";
+		+ "\nReceta: " + receta.toString() + "\n"              
+                +"\n________________________________________\n"
+                        + "\n\t  DICTAMEN MÉDICO\n"
+                        +consultorio.getMascota().getNombre()+" fue diagnósticado con: "+ consultorio.getMascota().getDolencia()
+                        + "\n\nRecibió atención médica en el consultorio #:" + consultorio.getNumerocon()
+			+"\n\nMédico encargado de la revisión: " + consultorio.getMedico().getNombre()
+                        + "\n\nSe le recetó:"+ receta.getNombre_Medicamento() +
+                             "\n\nCódigo del medicamento:"+ receta.getCodigoMeidcamento()
+                                +"\n________________________________________\n"+
+                                  "\n*********************************************************\n";
 }
 public String DatosRecupera() {
-	return "\t Informacíon de Pacientes"+
-               "\nConsultorio: " + consultorio.toString()
-		+ "\nReceta: " + receta.toString() + "\n";
+	return "\n\n INFORMACIÓN DEL PACIENTE \n"+
+               "\n "+consultorio.toString() +
+		 "\n " + receta.toString() + "\n"
+                 +"\n________________________________________\n"
+                + "\n\t  DICTAMEN MÉDICO\n"
+                        +consultorio.getMascota().getNombre()+" fue diagnósticado con: "+ consultorio.getMascota().getDolencia()
+                        + "\n\nRecibió atención médica en el consultorio #:" + consultorio.getNumerocon()
+			+"\n\nMédico encargado de la revisión: " + consultorio.getMedico().getNombre()
+                        + "\n\nSe le recetó:"+ receta.getNombre_Medicamento() +
+                             "\n\nCódigo del medicamento:"+ receta.getCodigoMeidcamento()
+                                +"\n________________________________________\n"+
+                                  "\n*********************************************************\n";
 }
-
 
 
 }

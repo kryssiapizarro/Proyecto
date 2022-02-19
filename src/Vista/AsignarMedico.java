@@ -101,7 +101,7 @@ public class AsignarMedico extends javax.swing.JFrame {
 
         LabelConsultorios.setBackground(new java.awt.Color(255, 255, 255));
         LabelConsultorios.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        LabelConsultorios.setForeground(new java.awt.Color(51, 153, 255));
+        LabelConsultorios.setForeground(new java.awt.Color(0, 204, 153));
         LabelConsultorios.setText(" Consultorios");
         ContenedorImagemedico.add(LabelConsultorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 140, 30));
 
@@ -160,10 +160,10 @@ public class AsignarMedico extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 153));
         jLabel1.setText("Seleccione el médico:");
-        ContenedorImagemedico.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 190, 30));
+        ContenedorImagemedico.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 190, 30));
 
         LabelTitulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        LabelTitulo.setForeground(new java.awt.Color(153, 255, 153));
+        LabelTitulo.setForeground(new java.awt.Color(255, 255, 0));
         LabelTitulo.setText("Medicos del Hospital");
         ContenedorImagemedico.add(LabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 270, 40));
 

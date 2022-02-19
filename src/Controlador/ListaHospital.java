@@ -92,9 +92,6 @@ public class ListaHospital {
 
                     NodoHospital recorre1;
                     NodoHospital recorre2;
-                    //int cont = 0;
-                    //NodoHospital aux;
-                    //recorre1 = inicio;
                     if(inicio == null){
                          inicio=nuevo;
                         nuevo.adelante=null;
@@ -144,7 +141,7 @@ public class ListaHospital {
 				cont++;
 
 				a += aux.dato.toString();
-				aux = aux.atras;
+				aux = aux.adelante;
 			}
 
 //			JOptionPane.showMessageDialog(null, a);
@@ -170,7 +167,7 @@ public class ListaHospital {
 				cont++;
 
 				a += aux.dato.DatosRecupera();
-				aux = aux.atras;
+				aux = aux.adelante;
 			}
 
 //			JOptionPane.showMessageDialog(null, a);
@@ -182,7 +179,6 @@ public class ListaHospital {
 		return a;
 
 	}
-
 	//----Elimina datos de la lista-----
 	public void eliminaValor(Integer valor){
 		
@@ -250,8 +246,7 @@ public class ListaHospital {
 		ObjectInputStream ois = null;
 		JFileChooser Chooser = new JFileChooser();
 		Chooser.showOpenDialog(Chooser);
-		NodoHospital aux = inicio;
-
+		
 		try {
 			File f = Chooser.getSelectedFile();
 			FileInputStream fis = new FileInputStream(f);
@@ -260,7 +255,7 @@ public class ListaHospital {
 			while(true) {
 
 				Hospital e = (Hospital) ois.readObject();
-				insertarInicio(e);
+				insertarRecuperar(e);
 			}
 
 		}catch(IOException | ClassNotFoundException io){

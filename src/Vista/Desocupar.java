@@ -144,8 +144,8 @@ public class Desocupar extends javax.swing.JFrame {
                             hos.setConsultorio(con);
                             hos.setReceta(receta[a]);
 
-                            hospi.insertarInicio(hos);
-                            //temp.getDato().setEstado("Disponible");
+                            hospi.insertarRecuperar(hos);
+                          
 
                             textAreaMostrarMedicos.setText(lista.MostrarMedicos());
                             System.out.println("Se ha desocupado el consultorio " + numeroDeConsultorio);
@@ -164,7 +164,7 @@ public class Desocupar extends javax.swing.JFrame {
                         colaMascotas.insertar(mascota);
                         MostrarListaPacientes.setText(colaMascotas.imprimir());
                         }
-                            //MostrarListaPacientes.setText(NuevoPaciente.colaMascotas.imprimir());
+                            MostrarListaPacientes.setText(NuevoPaciente.colaMascotas.imprimir());
                             textAreaConsultoriosOcupados.setText(consu.mostrarOcupados());
                             temp = null;
                             break;

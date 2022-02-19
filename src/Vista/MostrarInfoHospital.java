@@ -49,7 +49,7 @@ public class MostrarInfoHospital extends javax.swing.JFrame {
 
         textAreaInformación.setEditable(false);
         textAreaInformación.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jPanel1.add(textAreaInformación, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 250, 260));
+        jPanel1.add(textAreaInformación, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 300, 270));
 
         BTNAcepta.setBackground(new java.awt.Color(0, 204, 102));
         BTNAcepta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -85,7 +85,7 @@ public class MostrarInfoHospital extends javax.swing.JFrame {
         this.dispose();
 	new Interfaz().setVisible(true);
         MostrarListaPacientes.setText(colaMascotas.imprimir());
-        MostrarListaEspera.setText(arbolito.toString());
+        //MostrarListaEspera.setText(arbolito.toString());
     }//GEN-LAST:event_BTNAceptaActionPerformed
 
     /**

@@ -90,7 +90,7 @@ public int CodPaciente;
         }
         return "\t    Información del Paciente" + "\nClasificacion: " + nombreClasifica + "\nNombre: " + Nombre + 
                 "\nRaza: " + Raza + "\nDueño: " + Dueño +
-                "\nDolencia: " + Dolencia + "\nEdad: " + Edad + "\nNúmero de paciente:" + CodPaciente;
+                "\nDolencia: " + Dolencia + "\nEdad: " + Edad + "\nNúmero de paciente:" + CodPaciente+"\n";
     }
    
     
